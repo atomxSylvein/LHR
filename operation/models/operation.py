@@ -60,7 +60,7 @@ class Operation(models.Model):
 	#provenance du patient
 	m_patient_origin = fields.Selection([("lisboa", "Lisbonne"), ("arpega", "Site web ARPEGA"), ("jalis", "Site web JALIS"), ("ehi", "Site web EHI"), ("facebook", "Facebook"), ("instagram", "Instagram"), ("greg", "Greg"), ("prescriber", "Prescripteur")], string="Temps opération médecin 1", default="half")
 	m_prescriber_name = fields.Char(string="Nom du prescripteur")
-	m_commission = fields.Boolean(default=False,, string="Avec commission")
+	m_commission = fields.Boolean(default=False, string="Avec commission")
 	m_acompte = fields.Boolean(default=False, string="Acompte client", track_visibility='onchange')
 	m_payment_method = fields.Selection([("transfer", "Virement"), ("paypal", "Paypal"), ("cheque", "Chèque")], default="transfer", string="Moyen de paiement")
 
