@@ -54,7 +54,7 @@
                               </group>
 
                               <group name="optiongroup" string="Option" colspan="2">
-                                <field name="m_prp"/>
+                                <field name="m_prp"/> 
                                 <field name="m_srv"/>
                                 <field name="m_srvzd"/>
                                 <field name="m_prp_amount"/>
