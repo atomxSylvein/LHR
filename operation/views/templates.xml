@@ -1,5 +1,4 @@
 <odoo>
-    <!-- link href="../static/src/css/atomx_portal.css" rel="stylesheet" type="text/css"/ -->
     <data>
         
         <!-- 1. VIEWS -->
@@ -10,17 +9,11 @@
             <field name="model">graft.operation</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-                <form>
+                <form> <!-- 
                     <header>
+                    
                         
-                        <button 
-                            name="plan_operation" 
-                            string="Valider le paiement &amp; planifier l'opération" 
-                            class="oe_highlight" 
-                            type="object"
-                            attrs="{'invisible':['|', '|', ('m_date_prevu','=', False), ('m_chirurgien', '=', False), ('m_stage_selection', '!=', 'enCours')]}"/>
-                        
-                        <field name="m_stage_selection" options="{'clickable': '0'}" widget="statusbar" default_value="brouillon"/>
+                        <field name="m_stage_selection" options="{'clickable': '0'}" widget="statusbar" default_value="asking"/>
                     </header>
 
                     <sheet string="Operation">
@@ -48,11 +41,11 @@
                         <div>
                             <div class="o_horizontal_separator">Client</div>
                             <group name="studio_group_ffca75_right">
-                                <field name="m_client" string="Client" help="Client" attrs="{}" required="1"/>
-                                <field name="m_client_genre" string="Civilité" help="Genre du client"/>
-                                <field name="m_client_nom_civil" attrs="{'invisible':1}"/>
-                                <field name="m_client_age" string="Âge" help="Âge du client"/>
-                                <field name="m_client_mail" string="E-mail" widget="email"/>
+                                <field name="m_patient" string="Client" help="Client" attrs="{}" required="1"/>
+                                <field name="m_patient_genre" string="Civilité" help="Genre du client"/>
+                                <field name="m_patient_nom_civil" attrs="{'invisible':1}"/>
+                                <field name="m_patient_age" string="Âge" help="Âge du client"/>
+                                <field name="m_patient_mail" string="E-mail" widget="email"/>
 
                                 <group string="Hébergement" colspan="2">
                                     <field name="m_hotel"/>
@@ -81,7 +74,7 @@
                     <div class="oe_chatter">
                         <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
                         <field name="message_ids" widget="mail_thread"/>
-                    </div>
+                    </div> -->
                 </form>
             </field>
         </record>
@@ -93,11 +86,13 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <tree string="Operation">
-                    <field name="m_date_prevu"/>
-                    <field name="m_chirurgien"/>
-                    <field name="m_name" modifiers="{}"/>
-                    <field name="m_client"/>
+                    <field name="m_patient"/>
+                    <field name="m_first_doctor"/>
+                    <field name="m_first_doctor_time"/>
+                    <field name="m_second_doctor"/>
+                    <field name="m_second_doctor_time"/>
                     <field name="m_stage_selection"/>
+                    <field name="m_graft_number"/>
                 </tree>
             </field>
         </record>
@@ -109,19 +104,28 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <kanban string="Operation" default_group_by="m_stage_selection" edit="false">
-                    <field name="m_client_nom"/>
+                    <field name="m_patient_name"/>
                     <field name="m_stage_selection"/>
-                    <field name="m_date_prevu"/>
+                    <field name="m_graft_number"/>
+                    <field name="m_first_doctor_name"/>
+                    <field name="m_second_doctor_name"/>
+                    <field name="m_operation_date_1"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_card oe_kanban_global_click">
                                 <div class="o_kanban_card_content">
-                                    <strong>Client </strong>
-                                    <field name="m_client_nom"/> <br/> <br/>
+                                    <strong>Patient : </strong>
+                                    <field name="m_patient_name"/> <br/> <br/>
+                                    <strong>Médecin 1 : </strong>
+                                    <field name="m_first_doctor_name"/> <br/>
+                                    <strong>Médecin 2 : </strong>
+                                    <field name="m_second_doctor_name"/><br/>
                                     <strong>Etat de l'opération : </strong>
                                     <field name="m_stage_selection"/> <br/>
+                                    <strong>Nombre de greffons : </strong>
+                                    <field name="m_graft_number"/> <br/>
                                     <strong>Opération prévue le </strong>
-                                    <field name="m_date_prevu"/>
+                                    <field name="m_operation_date_1"/>
                                 </div>
                             </div>
                         </t>
@@ -146,10 +150,12 @@
                     quick_add="False">
                     <field name="m_chirurgien_nom" string="Chirurgien"/>
 
-                    <field name="m_client_nom"/>
+                    <field name="m_patient_name"/>
+                    <field name="m_first_doctor_name"/>
+                    <field name="m_second_doctor_name"/>
                     <field name="m_stage_selection" string="Statut du dossier : "/>
 
-                    <field name="m_date_prevu" string="Date &amp; heure : "/>
+                    <field name="m_operation_date_1" string="Date &amp; heure : "/>
                 </calendar>
             </field>
         </record>
