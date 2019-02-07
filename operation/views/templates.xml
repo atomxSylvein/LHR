@@ -9,13 +9,13 @@
             <field name="model">graft.operation</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-                <form> <!-- 
+                <form>  
                     <header>
                     
                         
                         <field name="m_stage_selection" options="{'clickable': '0'}" widget="statusbar" default_value="asking"/>
                     </header>
-
+ <!--
                     <sheet string="Operation">
                         <div class="oe_title" style="max-width:50%;float:left;">
                                     <h1>
@@ -74,8 +74,8 @@
                     <div class="oe_chatter">
                         <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
                         <field name="message_ids" widget="mail_thread"/>
-                    </div> -->
-                </form>
+                    </div> 
+                </form> -->
             </field>
         </record>
 

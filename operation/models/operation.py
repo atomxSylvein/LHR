@@ -34,34 +34,92 @@ class Operation(models.Model):
 	_inherit = ['mail.thread']
 
 	m_name = fields.Char(compute='_compute_name', string="Nom de l'opération", store=True)
-	m_client_nom_civil = fields.Char(string="Nom avec la civilité 'M.' ou 'Mme.'")
-	m_chirurgien = fields.Many2one('hr.employee', string="Chirurgien")
-	m_client = fields.Many2one('res.partner', string="Client", required=True)
-	m_date_prevu = fields.Datetime(string="Date prévue de l'opération")
+	m_patient_full_name = fields.Char(string="Nom avec la civilité 'M.' ou 'Mme.'")
+	
 	m_message = fields.Text(string="Message du formulaire")
-	m_all_day = fields.Boolean(string="L'opération dure toute la journée", required=True, default=True)
+	m_baldness = fields.Many2one('graft.baldness', string="Niveau de calvitie estimé par le patient")
+	m_baldness_image = fields.Binary(compute="_compute_image", store=True, string="Niveau de calvitie estimé par le patient")
 
-	#relative actions & hotel
-	m_anesthesie = fields.Boolean(string="Utilisation d'anesthésique", default=False)
-	m_prp = fields.Boolean(string="PRP", default=False)
-	m_zrnt = fields.Boolean(string="Supplément zone receveuse non tondue", default=False)
-	m_hotel = fields.Boolean(string="Hébergement compris dans le forfait", default=False)
-	m_nb_nuit_hotel = fields.Integer(string="Nombre de nuits compris dans le forfait", default=0)
 	
-	#related fields
-	m_chirurgien_nom = fields.Char(related='m_chirurgien.name', store=False, readonly=True)
-	m_client_nom = fields.Char(related='m_client.name', store=False, readonly=True)
-	m_client_mail = fields.Char(related='m_client.email', store=False, readonly=True)
-	m_client_age = fields.Integer(related='m_client.x_years_old', store=False, readonly=True)
-	m_client_genre = fields.Selection(related='m_client.x_gender', store=False, readonly=True)
 	
+-----------------------------------------
+
+	#medecin et relatives
+	m_first_doctor = fields.Many2one('hr.employee', string="Médecin 1")
+	m_first_doctor_time = fields.Selection([("half", "Demi-journée"), ("full", "Journée")], string="Temps opération médecin 1", default="half")
+	m_second_doctor = fields.Many2one('hr.employee', string="Médecin 2")
+	m_second_doctor_time = fields.Selection([("half", "Demi-journée"), ("full", "Journée")], string="Temps opération médecin 1", default="half")
+	m_first_doctor_name = fields.Char(related='m_first_doctor.name', store=False, readonly=True)
+	m_second_doctor_name = fields.Char(related='m_second_doctor.name', store=False, readonly=True)
+
+	#dates
+	m_operation_date_1 = fields.Datetime(string="Date prévue de l'opération")
+	m_operation_date_2 = fields.Datetime()
+	m_preoperative_consultation = fields.Datetime(string="Consultation préopératoire")
+
+	#provenance du patient
+	m_patient_origin = fields.Selection([("lisboa", "Lisbonne"), ("arpega", "Site web ARPEGA"), ("jalis", "Site web JALIS"), ("ehi", "Site web EHI"), ("facebook", "Facebook"), ("instagram", "Instagram"), ("greg", "Greg"), ("prescriber", "Prescripteur")], string="Temps opération médecin 1", default="half")
+	m_prescriber_name = fields.Char(string="Nom du prescripteur")
+	m_commission = fields.Boolean(default=False,, string="Avec commission")
+	m_acompte = fields.Boolean(default=False, string="Acompte client", track_visibility='onchange')
+	m_payment_method = fields.Selection([("transfer", "Virement"), ("paypal", "Paypal"), ("cheque", "Chèque")], default="transfer", string="Moyen de paiement")
+
+	#greffons & interventions
+	m_graft_number = fields.Integer(string="Nombre de greffons")
+	m_other_intervention = fields.Boolean(default=False)
+	m_intervention_number = fields.Integer(string="Nombre d'interventions")
+	m_intervention_date = fields.Text(string="Date des interventions")
+
+	#options
+	m_prp = fields.Selection([("invoiced", "PRP facturé"), ("not_invoiced", "PRP non facturé")], string="PRP", default="invoiced")
+	m_prp_amount = fields.Integer(string="Montant PRP facturé")
+	m_srv = fields.Boolean(string="Supplément sans rasage visible SRV", default=False)
+	m_srvzd = fields.Boolean(string="Supplément sans rasage visible SRVZD", default=False)
+	m_extra_graft = fields.Integer(string="Greffons supplémentaires")
+
 	#files
 	m_consentement_eclaire = fields.Binary(string="Consentement éclairé")
 	m_engagement_qualite = fields.Binary(string="Engagement qualité")
+	m_devis = fields.Binary(string="Engagement qualité")
+	m_analyse_sanguine = fields.Binary(string="Analyse sanguine", track_visibility='onchange')
+	m_questionnaire = fields.Binary(string="Questionnaire médical", track_visibility='onchange')
+	m_pre_instruction = fields.Binary(string="Instructions préopératoires")
+	m_post_instruction = fields.Binary(string="Instructions postopératoires")
+	m_prescription = fields.Binary(string="Prescription des médicaments")
+	m_donor_neck_filename = fields.Char()
+	m_donor_neck = fields.Binary(string="Zone donneuse (nuque)")
+	m_donor_side_filename = fields.Char()
+	m_donor_side = fields.Binary(string="Zone donneuse (côté)")
+	m_treat_face_filename = fields.Char()
+	m_treat_face = fields.Binary(string="Zone à traiter (face)")
+	m_treat_side_filename = fields.Char()
+	m_treat_side = fields.Binary(string="Zone à traiter (profil)")
+	m_treat_top_filename = fields.Char()
+	m_treat_top = fields.Binary(string="Zone à traiter (dessus)")
+
+	#partie patient
+	m_patient = fields.Many2one('res.partner', string="Client", required=True)
+	m_patient_name = fields.Char(related='m_patient.name', store=False, readonly=True)
+	m_patient_mail = fields.Char(related='m_patient.email', store=False, readonly=True)
+	m_patient_yo = fields.Integer(related='m_patient.m_years_old', store=False, readonly=True)
+	m_patient_gender = fields.Selection(related='m_patient.m_gender', store=False, readonly=True)
+	m_patient_mobile = fields.Selection(related='m_patient.mobile', store=False, readonly=True)
+
+	#hébergement
+	m_hotel = fields.Boolean(string="Hébergement compris dans le devis")
+	m_hotel_person_number = fields.Integer(string="Nombre de personnes comprises dans l'hébergement")
+	m_reservation = fields.Boolean(string="Réservation de l'hôtel", track_visibility='onchange')
+	m_hotel_name = fields.Char(string="Nom de l'hôtel")
+
 
 	#stage
-	m_stage_selection = fields.Selection([("brouillon","Demande de devis"), ("enCours","Dossier en cours de validation"), ("planifie","Opération validée"), ("archive","Archivé")], string="Statut du dossier", default="brouillon", group_expand="_read_group_stage_ids", store=True, track_visibility='onchange')
+	m_stage_selection = fields.Selection([("asking","Demande de devis"), ("fileOk","Dossier renseigné"), ("sending","Envoie du devis"), ("validated","Accord & Date validée"), ("consultation", "Consultation préopératoire"), ("postop", "Suivi post op"), ("other", "Autres interventions"), ("closed", "Fermé")], string="Etat d'avancement", default="asking", group_expand="_read_group_stage_ids", store=True, track_visibility='onchange')
 
+
+	@api.depends('m_baldness')
+	def _compute_image(self):
+		for operation in self:
+			operation.m_baldness_image = operation.m_baldness.m_image
 
 	@api.model
 	def _read_group_stage_ids(self, stages, domain, order):
@@ -75,7 +133,7 @@ class Operation(models.Model):
 		Returns:
 		    Array[graft.stage]: Description
 		"""
-		return (["brouillon", "enCours", "planifie", "archive"])
+		return (["asking", "fileOk", "sending", "validated", "consultation", "postop", "other", "closed"])
 
 	@api.one
 	def plan_operation(self):
@@ -113,4 +171,4 @@ class Operation(models.Model):
 
 				last_id = int(last_operation.id) if last_operation else 0
 				operation.m_name = "Devis " + str(last_id) + " - " + operation.m_client_nom
-				operation.m_client_nom_civil = ' '.join(['M.', operation.m_client_nom]) if operation.m_client.x_gender == 'man' else ' '.join(['Mme.', operation.m_client_nom])
+				operation.m_client_nom_civil = ' '.join(['M.', operation.m_client_nom]) if operation.m_client.m_gender == 'man' else ' '.join(['Mme.', operation.m_client_nom])
