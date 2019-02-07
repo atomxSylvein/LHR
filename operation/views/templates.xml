@@ -70,12 +70,12 @@
                                 </h5>
                             </div>
                         </group>
-                    </sheet>
+                    </sheet> -->
                     <div class="oe_chatter">
                         <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
                         <field name="message_ids" widget="mail_thread"/>
                     </div> 
-                </form> -->
+                </form>
             </field>
         </record>
 

@@ -135,9 +135,6 @@ class Operation(models.Model):
 		"""
 		return (["asking", "fileOk", "sending", "validated", "consultation", "postop", "other", "closed"])
 
-	@api.one
-	def plan_operation(self):
-		self.write({'m_stage_selection':"planifie"})
 
 	@api.model
 	def create(self, values):
