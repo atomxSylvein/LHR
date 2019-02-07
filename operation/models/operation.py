@@ -42,7 +42,7 @@ class Operation(models.Model):
 
 	
 	
------------------------------------------
+#-----------------------------------------
 
 	#medecin et relatives
 	m_first_doctor = fields.Many2one('hr.employee', string="Médecin 1")
