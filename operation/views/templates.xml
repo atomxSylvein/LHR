@@ -141,15 +141,11 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <calendar 
-                    date_start="m_operation_date_1" 
-                    date_stop="" 
+                    date_start="m_operation_date_1"
                     string="Default calendar view for Operation"
                     color="m_stage_selection"
                     mode="month"
-                    all_day="m_all_day"
                     quick_add="False">
-                    <field name="m_chirurgien_nom" string="Chirurgien"/>
-
                     <field name="m_patient_name"/>
                     <field name="m_first_doctor_name"/>
                     <field name="m_second_doctor_name"/>
