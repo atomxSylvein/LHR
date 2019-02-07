@@ -103,7 +103,7 @@ class Operation(models.Model):
 	m_patient_mail = fields.Char(related='m_patient.email', store=False, readonly=True)
 	m_patient_yo = fields.Integer(related='m_patient.m_years_old', store=False, readonly=True)
 	m_patient_gender = fields.Selection(related='m_patient.m_gender', store=False, readonly=True)
-	m_patient_mobile = fields.Selection(related='m_patient.mobile', store=False, readonly=True)
+	m_patient_mobile = fields.Char(related='m_patient.mobile', store=False, readonly=True)
 
 	#hébergement
 	m_hotel = fields.Boolean(string="Hébergement compris dans le devis")
