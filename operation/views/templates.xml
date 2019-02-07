@@ -1,0 +1,177 @@
+<odoo>
+    <!-- link href="../static/src/css/atomx_portal.css" rel="stylesheet" type="text/css"/ -->
+    <data>
+        
+        <!-- 1. VIEWS -->
+
+        <!-- FORM VIEW -->
+        <record id="view_ticket_form" model="ir.ui.view">
+            <field name="name">graft.operation.form</field>
+            <field name="model">graft.operation</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        
+                        <button 
+                            name="plan_operation" 
+                            string="Valider le paiement &amp; planifier l'opération" 
+                            class="oe_highlight" 
+                            type="object"
+                            attrs="{'invisible':['|', '|', ('m_date_prevu','=', False), ('m_chirurgien', '=', False), ('m_stage_selection', '!=', 'enCours')]}"/>
+                        
+                        <field name="m_stage_selection" options="{'clickable': '0'}" widget="statusbar" default_value="brouillon"/>
+                    </header>
+
+                    <sheet string="Operation">
+                        <div class="oe_title" style="max-width:50%;float:left;">
+                                    <h1>
+                                        <field name="m_name" help="Nom de l'opération" style="margin-top:10px;"/>
+                                        <br/><br/>
+                                    </h1>
+                                </div>
+                                <img src="http://www.lisboahair.com/site/images/interface/logo.jpg" 
+                                    style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;"/>
+                        <group name="studio_group_ffca75">
+                            
+                            <group name="studio_group_ffca75_left">
+                                <field name="id"/>
+                                <field name="create_date" string="Crée le" attrs="{'invisible':[('create_date','=', False)]}"/>
+                                <field name="m_date_prevu" string="Opération prévue le" help="Date de planification de l'opération" widget="datetime"/>
+                                <field name="m_chirurgien" string="Chirurgien responsable de l'opération" attrs="{}"/>
+                                <div class="o_horizontal_separator"><br/>Actions relatives</div>
+                                <field name="m_anesthesie" string="Utilisation d'anesthésique" attrs="{}"/>
+                                <field name="m_prp" string="PRP" attrs="{}"/>
+                                <field name="m_zrnt" string="Supplément zone receveuse non tondue" attrs="{}"/>
+                            </group>
+
+                        <div>
+                            <div class="o_horizontal_separator">Client</div>
+                            <group name="studio_group_ffca75_right">
+                                <field name="m_client" string="Client" help="Client" attrs="{}" required="1"/>
+                                <field name="m_client_genre" string="Civilité" help="Genre du client"/>
+                                <field name="m_client_nom_civil" attrs="{'invisible':1}"/>
+                                <field name="m_client_age" string="Âge" help="Âge du client"/>
+                                <field name="m_client_mail" string="E-mail" widget="email"/>
+
+                                <group string="Hébergement" colspan="2">
+                                    <field name="m_hotel"/>
+                                    <field name="m_nb_nuit_hotel"/>
+                                </group>
+
+                            </group>
+                        </div>
+                    </group>
+
+                    <group name="studio_group_HFifZ">
+                        <group name="studio_group_HFifZ_left" string="Documents">
+                            <field name="m_consentement_eclaire" string="Consentement éclairé"/>
+                            <field name="m_engagement_qualite" string="Engagement qualité"/>
+                        </group>
+                    </group>
+
+                        <group name="studio_group_HFifZ_left" string="Message de demande de devis">
+                            <div class="oe_description" style="float:bottom;"> 
+                                <h5>
+                                    <field name="m_message" placeholder="Message du formulaire" style="min-height:40px;"/>
+                                </h5>
+                            </div>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="view_ticket_tree" model="ir.ui.view">
+            <field name="name">graft.operation.tree</field>
+            <field name="model">graft.operation</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Operation">
+                    <field name="m_date_prevu"/>
+                    <field name="m_chirurgien"/>
+                    <field name="m_name" modifiers="{}"/>
+                    <field name="m_client"/>
+                    <field name="m_stage_selection"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- KANBAN VIEW -->
+        <record id="view_ticket_kanban" model="ir.ui.view">
+            <field name="name">graft.operation.kanban</field>
+            <field name="model">graft.operation</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <kanban string="Operation" default_group_by="m_stage_selection" edit="false">
+                    <field name="m_client_nom"/>
+                    <field name="m_stage_selection"/>
+                    <field name="m_date_prevu"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_card_content">
+                                    <strong>Client </strong>
+                                    <field name="m_client_nom"/> <br/> <br/>
+                                    <strong>Etat de l'opération : </strong>
+                                    <field name="m_stage_selection"/> <br/>
+                                    <strong>Opération prévue le </strong>
+                                    <field name="m_date_prevu"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- TASK VIEW -->
+        <record id="view_ticket_calendar" model="ir.ui.view">
+            <field name="name">graft.operation.calendar</field>
+            <field name="model">graft.operation</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <calendar 
+                    date_start="m_date_prevu" 
+                    date_stop="" 
+                    string="Default calendar view for Operation"
+                    color="m_stage_selection"
+                    mode="month"
+                    all_day="m_all_day"
+                    quick_add="False">
+                    <field name="m_chirurgien_nom" string="Chirurgien"/>
+
+                    <field name="m_client_nom"/>
+                    <field name="m_stage_selection" string="Statut du dossier : "/>
+
+                    <field name="m_date_prevu" string="Date &amp; heure : "/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- 2. Actions -->
+        <record model="ir.actions.act_window" id="action_view_all_operations">
+            <field name="name">Operations</field>
+            <field name="res_model">graft.operation</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,form,calendar,tree</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Plan a new Operation</p>
+            </field>
+        </record>
+
+        <!-- 3. Menu items -->
+        <menuitem
+            id="graft_operation_view"
+            name="Devis &amp; operations de greffe"
+            action="action_view_all_operations"
+            sequence="6"/>
+
+    </data>
+</odoo>
