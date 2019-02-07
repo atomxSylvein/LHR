@@ -141,7 +141,7 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <calendar 
-                    date_start="m_date_prevu" 
+                    date_start="m_operation_date_1" 
                     date_stop="" 
                     string="Default calendar view for Operation"
                     color="m_stage_selection"
