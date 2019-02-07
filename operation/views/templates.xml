@@ -28,6 +28,7 @@
                         <group name="maingroup">
                           
                           <group name="mainleftgroup">
+                            <group name="maininfo" colspan="2">
                               <field name="id"/>
                               <label for="m_operation_time1" string="Date prévue de l'opération"/>
                               <div class="o_row o_row_readonly">
@@ -50,7 +51,8 @@
                               <field name="m_other_intervention"/>
                               <field name="m_intervention_number" attrs="{'invisible': [('m_other_intervention', '=', False)]}"/>
                               <field name="m_intervention_date" attrs="{'invisible': [('m_other_intervention', '=', False)]}"/>
-                              
+                              </group>
+
                               <group name="optiongroup" string="Option" colspan="2">
                                 <field name="m_prp"/>
                                 <field name="m_srv"/>
@@ -62,13 +64,15 @@
                           </group>
                           
                           <group name="mainrightgroup" string="Patient">
-                            <field name="m_patient"/>
-                            <field name="m_patient_gender"/>
-                            <field name="m_patient_yo"/>
-                            <field name="m_patient_mail"/>
-                            <field name="m_patient_mobile"/>
+                            <group name="patientinfo" colspan="2">
+                                <field name="m_patient"/>
+                                <field name="m_patient_gender"/>
+                                <field name="m_patient_yo"/>
+                                <field name="m_patient_mail"/>
+                                <field name="m_patient_mobile"/>
+                            </group>
                             
-                            <group name="hebergementgroup" string="Hébergement">
+                            <group name="hebergementgroup" colspan="2" string="Hébergement">
                               <field name="m_hotel"/>
                               <field name="m_hotel_person_number"/>
                               <field name="m_reservation"/>
@@ -107,7 +111,7 @@
                             
                         </group>
                         
-                        <group name="photogroup">
+                        <group name="photogroup" string="Degré de calvitie">
                           
                           <group name="photoleftgroup">
                             <field name="m_baldness" domain="[('m_gender', '=', m_patient_gender)]"/>

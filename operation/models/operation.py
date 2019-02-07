@@ -37,12 +37,9 @@ class Operation(models.Model):
 	m_patient_full_name = fields.Char(string="Nom avec la civilité 'M.' ou 'Mme.'")
 	
 	m_message = fields.Text(string="Message du formulaire")
-	m_baldness = fields.Many2one('graft.baldness', string="Niveau de calvitie estimé par le patient")
+	m_baldness = fields.Many2one('graft.baldness', string="Cas")
 	m_baldness_image = fields.Binary(compute="_compute_image", store=True, string="Niveau de calvitie estimé par le patient")
 
-	
-	
-#-----------------------------------------
 
 	#medecin et relatives
 	m_first_doctor = fields.Many2one('hr.employee', string="Médecin 1")
@@ -66,7 +63,7 @@ class Operation(models.Model):
 
 	#greffons & interventions
 	m_graft_number = fields.Integer(string="Nombre de greffons")
-	m_other_intervention = fields.Boolean(default=False)
+	m_other_intervention = fields.Boolean(default=False, string="Autres interventions")
 	m_intervention_number = fields.Integer(string="Nombre d'interventions")
 	m_intervention_date = fields.Text(string="Date des interventions")
 
@@ -178,4 +175,4 @@ class Operation(models.Model):
 
 				last_id = int(last_operation.id) if last_operation else 0
 				operation.m_name = "Devis " + str(last_id) + " - " + operation.m_patient_name
-				operation.m_client_nom_civil = ' '.join(['M.', operation.m_patient_name]) if operation.m_client.m_gender == 'man' else ' '.join(['Mme.', operation.m_patient_name])
+				operation.m_client_nom_civil = ' '.join(['M.', operation.m_patient_name]) if operation.m_patient.m_gender == 'man' else ' '.join(['Mme.', operation.m_patient_name])
