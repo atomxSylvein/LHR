@@ -58,10 +58,10 @@ class Operation(models.Model):
 	m_preoperative_consultation = fields.Datetime(string="Consultation préopératoire")
 
 	#provenance du patient
-	m_patient_origin = fields.Selection([("lisboa", "Lisbonne"), ("arpega", "Site web ARPEGA"), ("jalis", "Site web JALIS"), ("ehi", "Site web EHI"), ("facebook", "Facebook"), ("instagram", "Instagram"), ("greg", "Greg"), ("prescriber", "Prescripteur")], string="Temps opération médecin 1", default="half")
+	m_patient_origin = fields.Selection([("lisboa", "Lisbonne"), ("arpega", "Site web ARPEGA"), ("jalis", "Site web JALIS"), ("ehi", "Site web EHI"), ("facebook", "Facebook"), ("instagram", "Instagram"), ("greg", "Greg"), ("prescriber", "Prescripteur")], string="Origine du patient", default="lisboa")
 	m_prescriber_name = fields.Char(string="Nom du prescripteur")
 	m_commission = fields.Boolean(default=False, string="Avec commission")
-	m_acompte = fields.Boolean(default=False, string="Acompte client", track_visibility='onchange')
+	m_acompte = fields.Boolean(default=False, string="Acompte patient", track_visibility='onchange')
 	m_payment_method = fields.Selection([("transfer", "Virement"), ("paypal", "Paypal"), ("cheque", "Chèque")], default="transfer", string="Moyen de paiement")
 
 	#greffons & interventions
@@ -78,13 +78,23 @@ class Operation(models.Model):
 	m_extra_graft = fields.Integer(string="Greffons supplémentaires")
 
 	#files
+	m_consentement_eclaire_filename = fields.Char()
 	m_consentement_eclaire = fields.Binary(string="Consentement éclairé")
+	m_engagement_qualite_filename = fields.Char()
 	m_engagement_qualite = fields.Binary(string="Engagement qualité")
-	m_devis = fields.Binary(string="Engagement qualité")
+	m_exit_permit_filename = fields.Char()
+	m_exit_permit = fields.Binary(string="Autorisation de sortie")
+	m_devis_filename = fields.Char()
+	m_devis = fields.Binary(string="Devis")
+	m_analyse_sanguine_filename = fields.Char()
 	m_analyse_sanguine = fields.Binary(string="Analyse sanguine", track_visibility='onchange')
+	m_questionnaire_filename = fields.Char()
 	m_questionnaire = fields.Binary(string="Questionnaire médical", track_visibility='onchange')
+	m_pre_instruction_filename = fields.Char()
 	m_pre_instruction = fields.Binary(string="Instructions préopératoires")
+	m_post_instruction_filename = fields.Char()
 	m_post_instruction = fields.Binary(string="Instructions postopératoires")
+	m_prescription_filename = fields.Char()
 	m_prescription = fields.Binary(string="Prescription des médicaments")
 	m_donor_neck_filename = fields.Char()
 	m_donor_neck = fields.Binary(string="Zone donneuse (nuque)")
@@ -100,10 +110,10 @@ class Operation(models.Model):
 	#partie patient
 	m_patient = fields.Many2one('res.partner', string="Client", required=True)
 	m_patient_name = fields.Char(related='m_patient.name', store=False, readonly=True)
-	m_patient_mail = fields.Char(related='m_patient.email', store=False, readonly=True)
-	m_patient_yo = fields.Integer(related='m_patient.m_years_old', store=False, readonly=True)
-	m_patient_gender = fields.Selection(related='m_patient.m_gender', store=False, readonly=True)
-	m_patient_mobile = fields.Char(related='m_patient.mobile', store=False, readonly=True)
+	m_patient_mail = fields.Char(related='m_patient.email', string="Email", store=False, readonly=True)
+	m_patient_yo = fields.Integer(related='m_patient.m_years_old', string="Âge", store=False, readonly=True)
+	m_patient_gender = fields.Selection(related='m_patient.m_gender', string="Sexe", store=False, readonly=True)
+	m_patient_mobile = fields.Char(related='m_patient.mobile', string="Mobile", store=False, readonly=True)
 
 	#hébergement
 	m_hotel = fields.Boolean(string="Hébergement compris dans le devis")
