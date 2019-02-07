@@ -9,4 +9,4 @@ class BaldnessDegree(models.Model):
 
 	m_gender = fields.Selection([("man", "Homme"), ("woman", "Femme")], string="Sexe", default="man")
 	m_image = fields.Binary(string="Image")
-	m_case = fields.Selection([("1", "Cas 1"), ("2", "Cas 2"), ("3", "Cas 3")], string="Cas", default="1")
+	m_case = fields.Selection([("1", "Cas 1"), ("2", "Cas 2"), ("3", "Cas 3"), ("4", "Cas 4")], string="Cas", default="1")
