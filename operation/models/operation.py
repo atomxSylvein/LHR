@@ -160,15 +160,15 @@ class Operation(models.Model):
 		
 		return record
 
-	@api.depends('m_client_nom')
+	@api.depends('m_patient_name')
 	def _compute_name(self):
 		"""Since m_name and m_client_nom_civil are not input fields, they are computed by this function with client information
 		"""
 		for operation in self:
-			if operation.m_client_nom:
+			if operation.m_patient_name:
 				operation_environment = self.env['graft.operation']
 				last_operation = operation_environment.sudo().search([], order="id desc", limit=1)
 
 				last_id = int(last_operation.id) if last_operation else 0
-				operation.m_name = "Devis " + str(last_id) + " - " + operation.m_client_nom
-				operation.m_client_nom_civil = ' '.join(['M.', operation.m_client_nom]) if operation.m_client.m_gender == 'man' else ' '.join(['Mme.', operation.m_client_nom])
+				operation.m_name = "Devis " + str(last_id) + " - " + operation.m_patient_name
+				operation.m_client_nom_civil = ' '.join(['M.', operation.m_patient_name]) if operation.m_client.m_gender == 'man' else ' '.join(['Mme.', operation.m_patient_name])
