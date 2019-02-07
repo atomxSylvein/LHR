@@ -115,7 +115,7 @@
                           
                           <group name="photoleftgroup">
                             <field name="m_baldness" domain="[('m_gender', '=', m_patient_gender)]"/>
-                            <field name="m_baldness_image"/>
+                            <field name="m_baldness_image" widget="image" class="oe_avatar"/>
                           </group>
                           
                           <group name="photorightgroup">
