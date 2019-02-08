@@ -53,13 +53,13 @@ class Main(Website):
 			'm_baldness': int(baldness_id),
 			'm_donor_neck_filename' : str(post.get('donor_neck').filename) if post.get('donor_neck',False) else None,
 			'm_donor_neck' : base64.b64encode(post.get('donor_neck').read()) if post.get('donor_neck',False) else None,
-			'm_donor_side_filename' : str(post.get('m_donor_side').filename) if post.get('m_donor_side',False) else None,
+			'm_donor_side_filename' : str(post.get('donor_side').filename) if post.get('donor_side',False) else None,
 			'm_donor_side' : base64.b64encode(post.get('donor_side').read()) if post.get('donor_side',False) else None,
-			'm_treat_face_filename' : str(post.get('m_treat_face').filename) if post.get('m_treat_face',False) else None,
+			'm_treat_face_filename' : str(post.get('treat_face').filename) if post.get('treat_face',False) else None,
 			'm_treat_face' : base64.b64encode(post.get('treat_face').read()) if post.get('treat_face',False) else None,
-			'm_treat_side_filename' : str(post.get('m_treat_side').filename) if post.get('m_treat_side',False) else None,
+			'm_treat_side_filename' : str(post.get('treat_side').filename) if post.get('treat_side',False) else None,
 			'm_treat_side' : base64.b64encode(post.get('treat_side').read()) if post.get('treat_side',False) else None,
-			'm_treat_top_filename' : str(post.get('m_treat_top').filename) if post.get('m_treat_top',False) else None,
+			'm_treat_top_filename' : str(post.get('treat_top').filename) if post.get('treat_top',False) else None,
 			'm_treat_top' : base64.b64encode(post.get('treat_top').read()) if post.get('treat_top',False) else None,
 		})
 		return http.request.redirect('/') #return http.request.redirect('http://www.lisboa-hair.com/')
