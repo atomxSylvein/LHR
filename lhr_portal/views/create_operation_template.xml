@@ -6,7 +6,7 @@
 				<div class="paper">
 
 					<h1 style="color:#33cba5;margin-bottom:20px;font-family:museo-sans,sans-serif;">
-						<div style="center">Contact <t t-esc="lang"/></div>
+						<div style="center">Contact</div>
 					</h1>
 					<br/>
 					<form action="/lhr-created" method="post" enctype="multipart/form-data">
@@ -15,13 +15,26 @@
 
 						
 						<div class="form-group form-field o_website_form_required_custom">
-							<h4>Vous êtes ? 
+							<h4>
+								<t t-if="lang == 'en'">You are ?</t>
+							  	<t t-elif="lang == 'pt'">Vous êtes ?</t>
+							  	<t t-else="">Vous êtes ?</t> 
 							<span class="grey">
 							  <span class="list-item">
-							  <input type="radio" name="gender" value="man" checked="checked">&amp;nbsp;</input> <span class="grey first">HOMME</span>
+							  <input type="radio" name="gender" value="man" checked="checked">&amp;nbsp;</input> 
+							  <span class="grey first">
+							  	<t t-if="lang == 'en'">MAN</t>
+							  	<t t-elif="lang == 'pt'">HOMEM</t>
+							  	<t t-else="">HOMME</t>
+							  </span>
 							  </span>
 							  <span class="list-item">
-							    <input type="radio" name="gender" value="woman">&amp;nbsp;</input> <span class="grey">FEMME</span>
+							    <input type="radio" name="gender" value="woman">&amp;nbsp;</input> 
+							    <span class="grey">
+							    	<t t-if="lang == 'en'">WOMAN</t>
+								  	<t t-elif="lang == 'pt'">MULHER</t>
+								  	<t t-else="">FEMME</t>
+							    </span>
 							  </span>
 							</span>
 							</h4>
@@ -31,15 +44,48 @@
 							<table class="large">
 								<tr>
 									<td>
-										<input 
+										<t t-if="lang == 'en'">
+											<input 
+											type="text" 
+											name="firstname" 
+											class="space form-control o_website_form_input"
+											required="True" 
+											placeholder="First name"/>
+										</t>
+									  	<t t-elif="lang == 'fr'">
+										  	<input 
+												type="text" 
+												name="firstname" 
+												class="space form-control o_website_form_input"
+												required="True" 
+												placeholder="Nom"/>
+										</t>
+									  	<t t-else="">
+									  		<input 
 											type="text" 
 											name="firstname" 
 											class="space form-control o_website_form_input"
 											required="True" 
 											placeholder="Nom"/>
+									  	</t>
 									</td>
 									<td>
 										<input 
+											t-if="lang == 'en'"
+											type="text" 
+											name="lastname" 
+											class="form-control o_website_form_input"
+											required="True" 
+											placeholder="Last name"/>
+										<input 
+											t-elif="lang == 'fr'"
+											type="text" 
+											name="lastname" 
+											class="form-control o_website_form_input"
+											required="True" 
+											placeholder="Prénom"/>
+										<input 
+											t-else=""
 											type="text" 
 											name="lastname" 
 											class="form-control o_website_form_input"
