@@ -19,6 +19,6 @@ class ContactPlugin(models.Model):
 	m_years_old = fields.Integer(string="Âge", translate=True)
 	m_graft = fields.Boolean(string="Déjà greffé", default=False, help="Le patient a t-il déjà eu recours à la greffe ?", translate=True)
 	m_last_intervention = fields.Boolean(string="Interventions précédentes", default=False, translate=True)
-	m_intervention_type = fields.Selection([("fue","FUE"), ("fut","FUT")], default='fue', string="Type d'intervention", translate=True)
+	m_intervention_type = fields.Selection([("fue","FUE"), ("fut","FUT")], string="Type d'intervention", translate=True)
 	m_graft_number = fields.Integer(string="Nombre de greffons", translate=True)
-	m_intervention_date = fields.Char(string="Date de l'intervention", translate=True)
+	m_intervention_date = fields.Char(string="Date de l'intervention")
