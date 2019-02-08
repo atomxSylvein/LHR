@@ -33,7 +33,7 @@
 						<group name="intervention_left">
 							<field name="m_last_intervention"/>
 							<field name="m_intervention_type" attrs="{'invisible': [('m_last_intervention','=', False)]}"/>
-							<field name="m_graft_number" attrs="{'invisible': [('m_last_intervention','=', False)]}"/>
+							<field name="m_graft_number" widget="char" attrs="{'invisible': [('m_last_intervention','=', False)]}"/>
 							<field name="m_intervention_date" attrs="{'invisible': [('m_last_intervention','=', False)]}"/>
 						</group>
 					</group>
