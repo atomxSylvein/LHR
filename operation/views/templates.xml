@@ -76,7 +76,7 @@
                               <field name="m_hotel"/>
                               <field name="m_hotel_person_number" widget="char" attrs="{'invisible': [('m_hotel', '=', False)]}"/>
                               <field name="m_reservation" attrs="{'invisible': [('m_hotel', '=', False)]}"/>
-                              <field name="m_hotel_name" attrs="{'invisible': ['&amp;', ('m_hotel', '=', False), ('m_reservation', '=', False)]}"/>
+                              <field name="m_hotel_name" attrs="{'invisible': ['|', ('m_hotel', '=', False), ('m_reservation', '=', False)]}"/>
                             </group>
                             
                           </group>
@@ -220,9 +220,9 @@
                     <field name="m_patient_name"/>
                     <field name="m_first_doctor_name"/>
                     <field name="m_second_doctor_name"/>
-                    <field name="m_stage_selection" string="Statut du dossier : "/>
+                    <field name="m_stage_selection"/>
 
-                    <field name="m_operation_date_1" string="Date &amp; heure : "/>
+                    <field name="m_operation_date_1"/>
                 </calendar>
             </field>
         </record>
