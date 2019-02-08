@@ -1,0 +1,7 @@
+<odoo>
+	<template id="lhr_title" name="change title" inherit_id="web.layout">
+      <xpath expr="//title" position="replace">
+        <title>Demande de devis</title>
+      </xpath>
+    </template>
+</odoo>

@@ -23,6 +23,7 @@
         'views/create_operation_template.xml',
         'views/footer.xml',
         'views/header.xml',
+        'views/tab_name.xml',
     ],
     'images': [
         'static/src/img/man_1.png',

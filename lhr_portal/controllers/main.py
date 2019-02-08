@@ -16,8 +16,8 @@ class Main(Website):
 		#récupération des pays
 		country_environment = request.env['res.country']
 		countries = country_environment.sudo().search([])
-
-		return request.render('lhr_portal.create_operation', { 'countries' : countries, 'lang':lang} )
+		language = "fr" if lang == "fr_FR" else "en" if lang == "en_EN" else "pt_PT"
+		return request.render('lhr_portal.create_operation', { 'countries' : countries, 'lang':language} )
 
 	@http.route('/lhr-created', type='http', auth='public', website=True)
 	def create_devis(self, **post):

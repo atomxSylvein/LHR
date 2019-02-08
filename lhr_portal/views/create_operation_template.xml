@@ -1,5 +1,5 @@
 <odoo>
-	<template id="create_operation" name="Un Titre">
+	<template id="create_operation">
 		<t t-call="website.layout">
 
 			<div class="paper_background">
