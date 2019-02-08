@@ -163,7 +163,7 @@
                     <field name="m_second_doctor"/>
                     <field name="m_second_doctor_time"/>
                     <field name="m_stage_selection"/>
-                    <field name="m_graft_number"/>
+                    <field name="m_graft_number" widget="char"/>
                 </tree>
             </field>
         </record>
