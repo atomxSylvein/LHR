@@ -45,7 +45,7 @@ class Operation(models.Model):
 	m_first_doctor = fields.Many2one('hr.employee', string="Médecin 1")
 	m_first_doctor_time = fields.Selection([("half", "Demi-journée"), ("full", "Journée")], string="Temps opération médecin 1", default="half")
 	m_second_doctor = fields.Many2one('hr.employee', string="Médecin 2")
-	m_second_doctor_time = fields.Selection([("half", "Demi-journée"), ("full", "Journée")], string="Temps opération médecin 1", default="half")
+	m_second_doctor_time = fields.Selection([("half", "Demi-journée"), ("full", "Journée")], string="Temps opération médecin 2", default="half")
 	m_first_doctor_name = fields.Char(related='m_first_doctor.name', store=False, readonly=True)
 	m_second_doctor_name = fields.Char(related='m_second_doctor.name', store=False, readonly=True)
 
