@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+        <record id="man_1" model="graft.baldness">
+            <field name="m_gender">man</field>
+            <field name="m_case">1</field>
+        </record>
+        <record id="man_2" model="graft.baldness">
+            <field name="m_gender">man</field>
+            <field name="m_case">2</field>
+        </record>
+        <record id="man_3" model="graft.baldness">
+            <field name="m_gender">man</field>
+            <field name="m_case">3</field>
+        </record>
+        <record id="man_4" model="graft.baldness">
+            <field name="m_gender">man</field>
+            <field name="m_case">4</field>
+        </record>
+
+        <record id="woman_1" model="graft.baldness">
+            <field name="m_gender">woman</field>
+            <field name="m_case">1</field>
+        </record>
+        <record id="woman_2" model="graft.baldness">
+            <field name="m_gender">woman</field>
+            <field name="m_case">2</field>
+        </record>
+        <record id="woman_3" model="graft.baldness">
+            <field name="m_gender">woman</field>
+            <field name="m_case">3</field>
+        </record>
+        <record id="woman_4" model="graft.baldness">
+            <field name="m_gender">woman</field>
+            <field name="m_case">4</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+	<!-- Adds all assets in Odoo -->
+        <template id="assets_backend" name="static_resources_demo assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+		         <link href="/operation/static/src/css/operation.css" rel="stylesheet" type="text/css"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

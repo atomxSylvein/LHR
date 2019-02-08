@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_graft_operation,graft.operation,model_graft_operation,,1,1,1,1
+access_graft_baldness,graft.baldness,model_graft_baldness,,1,1,0,0
