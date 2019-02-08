@@ -44,30 +44,27 @@
 							<table class="large">
 								<tr>
 									<td>
-										<t t-if="lang == 'en'">
-											<input 
+										<input 
+											t-if="lang == 'en'"
 											type="text" 
 											name="firstname" 
 											class="space form-control o_website_form_input"
 											required="True" 
 											placeholder="First name"/>
-										</t>
-									  	<t t-elif="lang == 'fr'">
-										  	<input 
-												type="text" 
-												name="firstname" 
-												class="space form-control o_website_form_input"
-												required="True" 
-												placeholder="Nom"/>
-										</t>
-									  	<t t-else="">
-									  		<input 
+									  	<input 
+									  		t-elif="lang == 'fr'"
 											type="text" 
 											name="firstname" 
 											class="space form-control o_website_form_input"
 											required="True" 
 											placeholder="Nom"/>
-									  	</t>
+								  		<input 
+								  			t-else=""
+											type="text" 
+											name="firstname" 
+											class="space form-control o_website_form_input"
+											required="True" 
+											placeholder="Nom"/>
 									</td>
 									<td>
 										<input 
@@ -96,6 +93,21 @@
 								<tr>
 									<td colspan="2">
 										<input 
+											t-if="lang == 'en'"
+											type="text" 
+											name="street" 
+											class="space form-control o_website_form_input"
+											required="True" 
+											placeholder="Address"/>
+										<input 
+											t-if="lang == 'fr'"
+											type="text" 
+											name="street" 
+											class="space form-control o_website_form_input"
+											required="True" 
+											placeholder="Adresse"/>
+										<input 
+											t-else=""
 											type="text" 
 											name="street" 
 											class="space form-control o_website_form_input"
@@ -106,6 +118,21 @@
 								<tr>
 									<td>
 										<input 
+											t-if="lang == 'en'"
+											type="text" 
+											name="zip" 
+											class="space form-control o_website_form_input"
+											required="True" 
+											placeholder="Zip code"/>
+										<input 
+											t-elif="lang == 'fr"
+											type="text" 
+											name="zip" 
+											class="space form-control o_website_form_input"
+											required="True" 
+											placeholder="Code postal"/>
+										<input 
+											t-else=""
 											type="text" 
 											name="zip" 
 											class="space form-control o_website_form_input"
@@ -114,6 +141,21 @@
 									</td>
 									<td>
 										<input 
+											t-if="lang == 'en'"
+											type="text" 
+											name="city" 
+											class="form-control o_website_form_input"
+											required="True" 
+											placeholder="City"/>
+										<input 
+											t-elif="lang == 'fr'"
+											type="text" 
+											name="city" 
+											class="form-control o_website_form_input"
+											required="True" 
+											placeholder="Ville"/>
+										<input 
+											t-else=""
 											type="text" 
 											name="city" 
 											class="form-control o_website_form_input"
@@ -133,6 +175,21 @@
 									</td>
 									<td>
 										<input 
+											t-if="lang == 'en'"
+											type="number" 
+											name="yo" 
+											class="form-control o_website_form_input"
+											required="True" 
+											placeholder="Age"/>
+										<input 
+											t-elif="lang == 'fr'"
+											type="number" 
+											name="yo" 
+											class="form-control o_website_form_input"
+											required="True" 
+											placeholder="Âge"/>
+										<input 
+											t-else=""
 											type="number" 
 											name="yo" 
 											class="form-control o_website_form_input"
@@ -153,6 +210,19 @@
 								<tr>
 									<td>
 										<input 
+											t-if="lang == 'en'"
+											type="text" 
+											name="phone" 
+											class="space form-control o_website_form_input"
+											placeholder="Phone"/>
+										<input 
+											t-elif="lang == 'fr'"
+											type="text" 
+											name="phone" 
+											class="space form-control o_website_form_input"
+											placeholder="Téléphone"/>
+										<input 
+											t-else=""
 											type="text" 
 											name="phone" 
 											class="space form-control o_website_form_input"
@@ -160,6 +230,19 @@
 									</td>
 									<td>
 										<input 
+											t-if="lang == 'en'"
+											type="text" 
+											name="mobile" 
+											class="form-control o_website_form_input"
+											placeholder="Mobile phone"/>
+										<input 
+											t-elif="lang == 'fr'"
+											type="text" 
+											name="mobile" 
+											class="form-control o_website_form_input"
+											placeholder="Mobile"/>
+										<input 
+											t-else=""
 											type="text" 
 											name="mobile" 
 											class="form-control o_website_form_input"
@@ -174,11 +257,19 @@
 								<span class="grey">
 									<span class="list-item">
 										<input type="radio" name="grafted" value="no" checked="checked">&amp;nbsp;</input> 
-										<span class="grey first">NON</span>
+										<span class="grey first">
+											<t t-if="lang == 'en'">NO</t>
+										  	<t t-elif="lang == 'pt'">Não</t>
+										  	<t t-else="">NON</t>
+										</span>
 									</span>
 									<span class="list-item">
 										<input type="radio" name="grafted" value="yes">&amp;nbsp;</input> 
-										<span class="grey">OUI</span>
+										<span class="grey">
+											<t t-if="lang == 'en'">YES</t>
+										  	<t t-elif="lang == 'pt'">Sim</t>
+										  	<t t-else="">OUI</t>
+										</span>
 									</span>
 								</span>
 								<br/><br/>
@@ -188,6 +279,27 @@
 
 						<div class="form-group form-field o_website_form_required_custom" style="margin-top:10px;">
 							<textarea
+								t-if="lang == 'en'"
+								type="text"
+								name="message" 
+								rows = "7" 
+								cols = "50" 
+								maxlength="5000"
+								class="form-control o_website_form_input"
+								required="True"
+								placeholder="Please describe your hair situation (We also treat beard or eyebrow grafts)"></textarea> 
+							<textarea
+								t-elif="lang == 'fr'"
+								type="text"
+								name="message" 
+								rows = "7" 
+								cols = "50" 
+								maxlength="5000"
+								class="form-control o_website_form_input"
+								required="True"
+								placeholder="Décrivez-nous votre situation capillaire (Nous traitons aussi les greffes de barbe ou de sourcils)"></textarea> 
+							<textarea
+								t-else=""
 								type="text"
 								name="message" 
 								rows = "7" 
@@ -199,7 +311,11 @@
 						</div>
 
 						<div class="form-group" style="margin-top:10px;">
-							<t><h5>Évaluez votre niveau de calvitie : </h5></t><br/>
+							<t><h5>
+								<t t-if="lang == 'en'">Assess your baldness level : </t>
+							  	<t t-elif="lang == 'pt'">Évaluez votre niveau de calvitie : </t>
+							  	<t t-else="">Évaluez votre niveau de calvitie : </t>
+							</h5></t><br/>
 							<table class="large">
 								<tr>
 									<td>
@@ -230,16 +346,55 @@
 
 						<div class="form-group" style="margin-top:10px;">
 						  <table>
-						    <tr><td>Zone donneuse (nuque)</td><td><input type="file" name="donor_neck" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td></tr>
-						    <tr><td>Zone donneuse (côté)</td><td><input type="file" name="donor_side" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td></tr>
-						    <tr><td>Zone à traiter (face)</td><td><input type="file" name="treat_face" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td></tr>
-						    <tr><td>Zone à traiter (profil)</td><td><input type="file" name="treat_side" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td></tr>
-						    <tr><td>Zone à traiter (dessus)</td><td><input type="file" name="treat_top" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td></tr>
+						    <tr>
+						    	<td>
+						    		<t t-if="lang == 'en'">Donor area (neck)</t>
+								  	<t t-elif="lang == 'pt'">Zone donneuse (nuque)</t>
+								  	<t t-else="">Zone donneuse (nuque)</t>
+						    	</td>
+						    	<td><input type="file" name="donor_neck" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td>
+						    </tr>
+						    <tr>
+						    	<td>
+						    		<t t-if="lang == 'en'">Donor area (side)</t>
+								  	<t t-elif="lang == 'pt'">Zone donneuse (côté)</t>
+								  	<t t-else="">Zone donneuse (côté)</t>
+						    	</td>
+						    	<td><input type="file" name="donor_side" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td>
+						    </tr>
+						    <tr>
+						    	<td>
+						    		<t t-if="lang == 'en'">Area to be treated (face)</t>
+								  	<t t-elif="lang == 'pt'">Zone à traiter (face)</t>
+								  	<t t-else="">Zone à traiter (face)</t>
+						    	</td>
+						    	<td><input type="file" name="treat_face" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td>
+						    </tr>
+						    <tr>
+						    	<td>
+						    		<t t-if="lang == 'en'">Area to be treated (side)</t>
+								  	<t t-elif="lang == 'pt'">Zone à traiter (profil)</t>
+								  	<t t-else="">Zone à traiter (profil)</t>
+						    	</td>
+						    	<td><input type="file" name="treat_side" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td>
+						    </tr>
+						    <tr>
+						    	<td>
+						    		<t t-if="lang == 'en'">Area to be treated (top)</t>
+								  	<t t-elif="lang == 'pt'">Zone à traiter (dessus)</t>
+								  	<t t-else="">Zone à traiter (dessus)</t>
+						    	</td>
+						    	<td><input type="file" name="treat_top" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td>
+						    </tr>
 						  </table>
 						</div>
 
 						<div class="form-group" align="right">
-							<button class="btn btn-block btn-primary o_website_form_send" style="max-width: 20%;">Envoyer</button>
+							<button class="btn btn-block btn-primary o_website_form_send" style="max-width: 20%;">
+								<t t-if="lang == 'en'">Send</t>
+							  	<t t-elif="lang == 'pt'">Envoyer</t>
+							  	<t t-else="">Envoyer</t>
+							</button>
 						</div>
 					</form>
 				</div>
