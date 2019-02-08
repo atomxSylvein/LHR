@@ -11,13 +11,13 @@ class Main(Website):
 	def index(self, **kw):
 		return request.render('lhr_portal.accueil', {} )"""
 
-	@http.route('/formulaire-contact', auth='public', website=True)
-	def formulaire_devis(self):
+	@http.route('/<lang>/formulaire-contact', auth='public', website=True)
+	def formulaire_devis(self, lang=None):
 		#récupération des pays
 		country_environment = request.env['res.country']
 		countries = country_environment.sudo().search([])
 
-		return request.render('lhr_portal.create_operation', { 'countries' : countries, } )
+		return request.render('lhr_portal.create_operation', { 'countries' : countries, 'lang':lang} )
 
 	@http.route('/lhr-created', type='http', auth='public', website=True)
 	def create_devis(self, **post):
@@ -41,9 +41,6 @@ class Main(Website):
 		baldness_environment = request.env['graft.baldness']
 		domain = ['&', ('m_gender', '=', post.get('gender')), ('m_case', '=', post.get('case'))]
 		baldness_id = baldness_environment.sudo().search(domain)
-	
-
-		
 
 		#then create new operation with status
 		operation_environment = request.env['graft.operation']

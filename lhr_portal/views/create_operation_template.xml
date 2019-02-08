@@ -1,12 +1,12 @@
 <odoo>
-	<template id="create_operation">
+	<template id="create_operation" name="Un Titre">
 		<t t-call="website.layout">
 
 			<div class="paper_background">
 				<div class="paper">
 
 					<h1 style="color:#33cba5;margin-bottom:20px;font-family:museo-sans,sans-serif;">
-						<div style="center">Contact</div>
+						<div style="center">Contact <t t-esc="lang"/></div>
 					</h1>
 					<br/>
 					<form action="/lhr-created" method="post" enctype="multipart/form-data">
@@ -128,11 +128,11 @@
 								<span class="grey">
 									<span class="list-item">
 										<input type="radio" name="grafted" value="no" checked="checked">&amp;nbsp;</input> 
-										<span class="grey first">Non</span>
+										<span class="grey first">NON</span>
 									</span>
 									<span class="list-item">
 										<input type="radio" name="grafted" value="yes">&amp;nbsp;</input> 
-										<span class="grey">Oui</span>
+										<span class="grey">OUI</span>
 									</span>
 								</span>
 								<br/><br/>
