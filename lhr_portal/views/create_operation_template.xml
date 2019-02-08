@@ -1,0 +1,194 @@
+<odoo>
+	<template id="create_operation">
+		<t t-call="website.layout">
+
+			<div class="paper_background">
+				<div class="paper">
+
+					<h1 style="color:#33cba5;margin-bottom:20px;margin-top:20px;font-family:museo-sans,sans-serif;">
+						<div style="center">Contact</div>
+					</h1>
+					<br/>
+					<form action="/lhr-created" method="post" enctype="multipart/form-data">
+
+						<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+						
+						<div class="form-group form-field o_website_form_required_custom">
+							<h4>Vous êtes ? 
+							<span class="grey">
+							  <span class="list-item">
+							  <input type="radio" name="gender" value="man" checked="checked">&amp;nbsp;</input> <span class="grey first">HOMME</span>
+							  </span>
+							  <span class="list-item">
+							    <input type="radio" name="gender" value="woman">&amp;nbsp;</input> <span class="grey">FEMME</span>
+							  </span>
+							</span>
+							</h4>
+						</div>
+
+						<div class="form-group form-field o_website_form_required_custom">
+							<table class="large">
+								<tr>
+									<td>
+										<input 
+											type="text" 
+											name="firstname" 
+											class="space form-control o_website_form_input"
+											required="True" 
+											placeholder="Nom"/>
+									</td>
+									<td>
+										<input 
+											type="text" 
+											name="lastname" 
+											class="form-control o_website_form_input"
+											required="True" 
+											placeholder="Prénom"/>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<input 
+											type="text" 
+											name="street" 
+											class="space form-control o_website_form_input"
+											required="True" 
+											placeholder="Adresse"/>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input 
+											type="text" 
+											name="zip" 
+											class="space form-control o_website_form_input"
+											required="True" 
+											placeholder="Code postal"/>
+									</td>
+									<td>
+										<input 
+											type="text" 
+											name="city" 
+											class="form-control o_website_form_input"
+											required="True" 
+											placeholder="Ville"/>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<select name="country" class="form-control o_website_form_input">
+											<t t-foreach="countries" t-as="country">
+											<option t-att-value="country.id">
+												<t t-esc="country.name"/>
+											</option>
+											</t>
+										</select>
+									</td>
+									<td>
+										<input 
+											type="number" 
+											name="yo" 
+											class="form-control o_website_form_input"
+											required="True" 
+											placeholder="Âge"/>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<input 
+											type="text" 
+											name="email" 
+											class="space form-control o_website_form_input"
+											required="True" 
+											placeholder="E-mail"/>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input 
+											type="text" 
+											name="phone" 
+											class="space form-control o_website_form_input"
+											placeholder="Téléphone"/>
+									</td>
+									<td>
+										<input 
+											type="text" 
+											name="mobile" 
+											class="form-control o_website_form_input"
+											placeholder="Mobile"/>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="space">
+							<t>Avez-vous déjà eu recours à la Greffe des Cheveux ? </t> 
+							<select name="grafted" class="space form-control o_website_form_input">
+								<option value="yes">Oui</option> 
+								<option value="no">Non</option> 
+							</select> 
+						</div>
+
+
+						<div class="form-group form-field o_website_form_required_custom" style="margin-top:10px;">
+							<textarea
+								type="text"
+								name="message" 
+								rows = "7" 
+								cols = "50" 
+								maxlength="5000"
+								class="form-control o_website_form_input"
+								required="True"
+								placeholder="Décrivez-nous votre situation capillaire (Nous traitons aussi les greffes de barbe ou de sourcils)"></textarea> 
+						</div>
+
+						<div class="form-group" style="margin-top:10px;">
+							<table class="large">
+								<tr>
+									<td>
+										<center><img t-att-src="'/lhr_portal/static/src/img/man_1.png'" width="50" height="50"/>
+										<img t-att-src="'/lhr_portal/static/src/img/woman_1.png'" width="50" height="50"/></center>
+									</td>
+									<td>
+										<center><img t-att-src="'/lhr_portal/static/src/img/man_2.png'" width="50" height="50"/>
+										<img t-att-src="'/lhr_portal/static/src/img/woman_2.png'" width="50" height="50"/></center>
+									</td>
+									<td>
+										<center><img t-att-src="'/lhr_portal/static/src/img/man_3.png'" width="50" height="50"/>
+										<img t-att-src="'/lhr_portal/static/src/img/woman_3.png'" width="50" height="50"/></center>
+									</td>
+									<td>
+										<center><img t-att-src="'/lhr_portal/static/src/img/man_4.png'" width="50" height="50"/>
+										<img t-att-src="'/lhr_portal/static/src/img/woman_4.png'" width="50" height="50"/></center>
+									</td>
+								</tr>
+								<tr>
+									<td><center><input type="radio" name="case" value="1" checked="checked"/></center></td>
+									<td><center><input type="radio" name="case" value="2"/></center></td>
+									<td><center><input type="radio" name="case" value="3"/></center></td>
+									<td><center><input type="radio" name="case" value="4"/></center></td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="form-group" style="margin-top:10px;">
+						  <table>
+						    <tr><td>Zone donneuse (nuque)</td><td><input type="file" name="donor_neck" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td></tr>
+						    <tr><td>Zone donneuse (côté)</td><td><input type="file" name="donor_side" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td></tr>
+						    <tr><td>Zone à traiter (face)</td><td><input type="file" name="treat_face" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td></tr>
+						    <tr><td>Zone à traiter (profil)</td><td><input type="file" name="treat_side" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td></tr>
+						    <tr><td>Zone à traiter (dessus)</td><td><input type="file" name="treat_top" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td></tr>
+						  </table>
+						</div>
+
+						<div class="form-group" align="right">
+							<button class="btn btn-block btn-primary o_website_form_send" style="max-width: 20%;">Envoyer</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</t>
+	</template>
+</odoo>
