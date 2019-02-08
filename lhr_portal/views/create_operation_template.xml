@@ -125,7 +125,7 @@
 											required="True" 
 											placeholder="Zip code"/>
 										<input 
-											t-elif="lang == 'fr"
+											t-elif="lang == 'fr'"
 											type="text" 
 											name="zip" 
 											class="space form-control o_website_form_input"
