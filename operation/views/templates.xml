@@ -28,7 +28,6 @@
                         <group name="maingroup">
                           
                           <group name="mainleftgroup">
-                            <group name="maininfo" colspan="2">
                               <field name="id"/>
                               <label for="m_operation_time1" string="Date prévue de l'opération"/>
                               <div class="o_row o_row_readonly">
@@ -51,16 +50,6 @@
                               <field name="m_other_intervention"/>
                               <field name="m_intervention_number" widget="char" attrs="{'invisible': [('m_other_intervention', '=', False)]}"/>
                               <field name="m_intervention_date" attrs="{'invisible': [('m_other_intervention', '=', False)]}"/>
-                              </group>
-
-                              <group name="optiongroup" string="Option" colspan="2">
-                                <field name="m_prp"/> 
-                                <field name="m_prp_amount" widget="char" attrs="{'invisible': [('m_prp', '=', False)]}"/>
-                                <field name="m_srv"/>
-                                <field name="m_srvzd"/>
-                                <field name="m_extra_graft" widget="char"/>
-                              </group>
-                              
                           </group>
                           
                           <group name="mainrightgroup" string="Patient">
@@ -82,7 +71,45 @@
                           </group>
                           
                         </group>
+
+                        <group name="optiongroup" string="Option" colspan="2">
+                            <group name="optionleftgroup">
+                                <field name="m_prp"/> 
+                                <field name="m_prp_amount" widget="char" attrs="{'invisible': [('m_prp', '=', False)]}"/>
+                                <field name="m_extra_graft" widget="char"/>
+                            </group>
+                            <group name="optionrightgroup">
+                                <field name="m_srv"/>
+                                <field name="m_srvzd"/>
+                            </group>
+                        </group>
                         
+                        <group name="photogroup" string="Degré de calvitie">
+                          
+                          <group name="photoleftgroup">
+                            <field name="m_baldness" domain="[('m_gender', '=', m_patient_gender)]"/>
+                            <field name="m_baldness_image" widget="image" class="oe_avatar"/>
+                          </group>
+                          
+                          <group name="photorightgroup">
+                            <field name="m_donor_neck_filename" invisible="1"/>
+                            <field name="m_donor_neck" filename="m_donor_neck_filename"/>
+                            <field name="m_donor_side_filename" invisible="1"/>
+                            <field name="m_donor_side" filename="m_donor_side_filename"/>
+                            <field name="m_treat_face_filename" invisible="1"/>
+                            <field name="m_treat_face" filename="m_treat_face_filename"/>
+                            <field name="m_treat_side_filename" invisible="1"/>
+                            <field name="m_treat_side" filename="m_treat_side_filename"/>
+                            <field name="m_treat_top_filename" invisible="1"/>
+                            <field name="m_treat_top" filename="m_treat_top_filename"/>
+                          </group>
+                          
+                        </group>
+                        
+                        <group name="studio_group_HFifZ_left" string="Message de demande de devis">
+                            <h5><field name="m_message" nolabel="1" placeholder="Message du formulaire" style="min-height:50px;"/></h5>
+                        </group>
+
                         <group name="documentgroup" string="Document">
                           
                             <group name="documentleftgroup">
@@ -109,36 +136,6 @@
                               <field name="m_prescription" filename="m_prescription_filename"/>
                             </group>
                             
-                        </group>
-                        
-                        <group name="photogroup" string="Degré de calvitie">
-                          
-                          <group name="photoleftgroup">
-                            <field name="m_baldness" domain="[('m_gender', '=', m_patient_gender)]"/>
-                            <field name="m_baldness_image" widget="image" class="oe_avatar"/>
-                          </group>
-                          
-                          <group name="photorightgroup">
-                            <field name="m_donor_neck_filename" invisible="1"/>
-                            <field name="m_donor_neck" filename="m_donor_neck_filename"/>
-                            <field name="m_donor_side_filename" invisible="1"/>
-                            <field name="m_donor_side" filename="m_donor_side_filename"/>
-                            <field name="m_treat_face_filename" invisible="1"/>
-                            <field name="m_treat_face" filename="m_treat_face_filename"/>
-                            <field name="m_treat_side_filename" invisible="1"/>
-                            <field name="m_treat_side" filename="m_treat_side_filename"/>
-                            <field name="m_treat_top_filename" invisible="1"/>
-                            <field name="m_treat_top" filename="m_treat_top_filename"/>
-                          </group>
-                          
-                        </group>
-                        
-                        <group name="studio_group_HFifZ_left" string="Message de demande de devis">
-                            <div class="oe_description" style="float:bottom;"> 
-                                <h5>
-                                    <field name="m_message" placeholder="Message du formulaire" style="min-height:40px;"/>
-                                </h5>
-                            </div>
                         </group>
                     </sheet>
                     <div class="oe_chatter">
