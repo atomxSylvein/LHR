@@ -76,7 +76,7 @@
                               <field name="m_hotel"/>
                               <field name="m_hotel_person_number" widget="char" attrs="{'invisible': [('m_hotel', '=', False)]}"/>
                               <field name="m_reservation" attrs="{'invisible': [('m_hotel', '=', False)]}"/>
-                              <field name="m_hotel_name" attrs="{'invisible': ['&', ('m_hotel', '=', False), ('m_reservation', '=', False)]}"/>
+                              <field name="m_hotel_name" attrs="{'invisible': ['&amp;', ('m_hotel', '=', False), ('m_reservation', '=', False)]}"/>
                             </group>
                             
                           </group>
