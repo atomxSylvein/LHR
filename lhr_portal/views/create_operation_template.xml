@@ -5,7 +5,7 @@
 			<div class="paper_background">
 				<div class="paper">
 
-					<h1 style="color:#33cba5;margin-bottom:20px;margin-top:20px;font-family:museo-sans,sans-serif;">
+					<h1 style="color:#33cba5;margin-bottom:20px;font-family:museo-sans,sans-serif;">
 						<div style="center">Contact</div>
 					</h1>
 					<br/>
@@ -124,11 +124,19 @@
 						</div>
 
 						<div class="space">
-							<t>Avez-vous déjà eu recours à la Greffe des Cheveux ? </t> 
-							<select name="grafted" class="space form-control o_website_form_input">
-								<option value="yes">Oui</option> 
-								<option value="no">Non</option> 
-							</select> 
+							<h5>Avez-vous déjà eu recours à la Greffe des Cheveux ? 
+								<span class="grey">
+									<span class="list-item">
+										<input type="radio" name="grafted" value="no" checked="checked">&amp;nbsp;</input> 
+										<span class="grey first">Non</span>
+									</span>
+									<span class="list-item">
+										<input type="radio" name="grafted" value="yes">&amp;nbsp;</input> 
+										<span class="grey">Oui</span>
+									</span>
+								</span>
+								<br/><br/>
+							</h5> 
 						</div>
 
 
@@ -145,6 +153,7 @@
 						</div>
 
 						<div class="form-group" style="margin-top:10px;">
+							<t><h5>Évaluez votre niveau de calvitie : </h5></t><br/>
 							<table class="large">
 								<tr>
 									<td>
