@@ -38,7 +38,7 @@ class Main(Website):
 			'm_years_old': int(post.get('yo')),
 			'm_graft': False if str(post.get('grafted')) == "no" else True,
 			'm_last_intervention': False if str(post.get('grafted')) == "no" else True,
-			'm_type': 'fue' if str(post.get('grafted')) == "fue" else "fut" if str(post.get('grafted')) == "fut" else "",
+			'm_intervention_type': 'fue' if str(post.get('grafted')) == "fue" else "fut" if str(post.get('grafted')) == "fut" else "",
 		})
 
 		#determine baldness degree
