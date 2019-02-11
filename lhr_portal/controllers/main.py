@@ -22,8 +22,6 @@ class Main(Website):
 	@http.route('/lhr-created', type='http', auth='public', website=True)
 	def create_devis(self, **post):
 
-		#_type = 'fue' if str(post.get('grafted')) == "fue" else "fut",
-
 		#Create contact first
 		contact = request.env['res.partner'].sudo().create({
 			'name': ' '.join([post.get('lastname'), post.get('firstname')]),
