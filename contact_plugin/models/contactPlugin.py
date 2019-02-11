@@ -16,7 +16,7 @@ class ContactPlugin(models.Model):
 	
 	_inherit = 'res.partner'
 	m_gender = fields.Selection([("man","Homme"), ("woman","Femme")], default='man', string="Genre", translate=True)
-	m_years_old = fields.Integer(string="Âge", translate=True)
+	m_years_old = fields.Integer(string="Âge", default="", translate=True)
 	m_graft = fields.Boolean(string="Déjà greffé", default=False, help="Le patient a t-il déjà eu recours à la greffe ?", translate=True)
 	m_last_intervention = fields.Boolean(string="Interventions précédentes", default=False, translate=True)
 	m_intervention_type = fields.Selection([("fue","FUE"), ("fut","FUT")], string="Type d'intervention", translate=True)
