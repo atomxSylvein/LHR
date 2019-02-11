@@ -75,7 +75,7 @@
                         <group name="optiongroup" string="Option" colspan="2">
                             <group name="optionleftgroup">
                                 <field name="m_prp"/> 
-                                <field name="m_prp_amount" widget="char" attrs="{'invisible': [('m_prp', '=', False)]}"/>
+                                <field name="m_prp_amount" widget="char" attrs="{'invisible': [('m_prp', '!=', 'invoiced')]}"/>
                                 <field name="m_extra_graft" widget="char"/>
                             </group>
                             <group name="optionrightgroup">
@@ -93,15 +93,15 @@
                           
                           <group name="photorightgroup">
                             <field name="m_donor_neck_filename" invisible="1"/>
-                            <field name="m_donor_neck" filename="m_donor_neck_filename"/>
+                            <field name="m_donor_neck" string="Zone donneuse (nuque)" filename="m_donor_neck_filename"/>
                             <field name="m_donor_side_filename" invisible="1"/>
-                            <field name="m_donor_side" filename="m_donor_side_filename"/>
+                            <field name="m_donor_side" string="Zone donneuse (côté)" filename="m_donor_side_filename"/>
                             <field name="m_treat_face_filename" invisible="1"/>
-                            <field name="m_treat_face" filename="m_treat_face_filename"/>
+                            <field name="m_treat_face" string="Zone à traiter (face)" filename="m_treat_face_filename"/>
                             <field name="m_treat_side_filename" invisible="1"/>
-                            <field name="m_treat_side" filename="m_treat_side_filename"/>
+                            <field name="m_treat_side" string="Zone à traiter (profil)" filename="m_treat_side_filename"/>
                             <field name="m_treat_top_filename" invisible="1"/>
-                            <field name="m_treat_top" filename="m_treat_top_filename"/>
+                            <field name="m_treat_top" string="Zone donneuse (dessus)" filename="m_treat_top_filename"/>
                           </group>
                           
                         </group>
@@ -114,26 +114,26 @@
                           
                             <group name="documentleftgroup">
                                 <field name="m_consentement_eclaire_filename" invisible="1"/>
-                                <field name="m_consentement_eclaire" filename="m_consentement_eclaire_filename"/>
+                                <field name="m_consentement_eclaire" string="Consentement éclairé" filename="m_consentement_eclaire_filename"/>
                                 <field name="m_exit_permit_filename" invisible="1"/>
-                                <field name="m_exit_permit" filename="m_exit_permit_filename"/>
+                                <field name="m_exit_permit" string="Autorisation de sortie" filename="m_exit_permit_filename"/>
                                 <field name="m_devis_filename" invisible="1"/>
-                                <field name="m_devis" filename="m_devis_filename"/>
+                                <field name="m_devis" string="Devis" filename="m_devis_filename"/>
                                 <field name="m_analyse_sanguine_filename" invisible="1"/>
-                                <field name="m_analyse_sanguine" filename="m_analyse_sanguine_filename"/>
+                                <field name="m_analyse_sanguine" string="Analyse sanguine" filename="m_analyse_sanguine_filename"/>
                                 <field name="m_questionnaire_filename" invisible="1"/>
-                                <field name="m_questionnaire" filename="m_questionnaire_filename"/>
+                                <field name="m_questionnaire" string="Questionnaire médical" filename="m_questionnaire_filename"/>
                             </group>
                             
                             <group name="documentrightgroup">
                               <field name="m_engagement_qualite_filename" invisible="1"/>
-                              <field name="m_engagement_qualite" filename="m_engagement_qualite_filename"/>
+                              <field name="m_engagement_qualite" string="Engagement qualité" filename="m_engagement_qualite_filename"/>
                               <field name="m_pre_instruction_filename" invisible="1"/>
-                              <field name="m_pre_instruction" filename="m_pre_instruction_filename"/>
+                              <field name="m_pre_instruction" string="Instructions préopératoires" filename="m_pre_instruction_filename"/>
                               <field name="m_post_instruction_filename" invisible="1"/>
-                              <field name="m_post_instruction" filename="m_post_instruction_filename"/>
+                              <field name="m_post_instruction" string="Instructions postopératoires" filename="m_post_instruction_filename"/>
                               <field name="m_prescription_filename" invisible="1"/>
-                              <field name="m_prescription" filename="m_prescription_filename"/>
+                              <field name="m_prescription" string="Prescription des médicaments" filename="m_prescription_filename"/>
                             </group>
                             
                         </group>
