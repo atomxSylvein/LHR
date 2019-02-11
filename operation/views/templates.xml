@@ -46,9 +46,9 @@
                               <field name="m_commission" attrs="{'invisible': [('m_patient_origin', '!=', 'prescriber')]}"/>
                               <field name="m_acompte"/>
                               <field name="m_payment_method" attrs="{'invisible': [('m_acompte', '=', False)]}"/>
-                              <field name="m_graft_number" widget="char"/>
+                              <field name="m_graft_number"/>
                               <field name="m_other_intervention"/>
-                              <field name="m_intervention_number" widget="char" attrs="{'invisible': [('m_other_intervention', '=', False)]}"/>
+                              <field name="m_intervention_number" attrs="{'invisible': [('m_other_intervention', '=', False)]}"/>
                               <field name="m_intervention_date" attrs="{'invisible': [('m_other_intervention', '=', False)]}"/>
                           </group>
                           
@@ -63,7 +63,7 @@
                             
                             <group name="hebergementgroup" colspan="2" string="Hébergement">
                               <field name="m_hotel"/>
-                              <field name="m_hotel_person_number" widget="char" attrs="{'invisible': [('m_hotel', '=', False)]}"/>
+                              <field name="m_hotel_person_number" attrs="{'invisible': [('m_hotel', '=', False)]}"/>
                               <field name="m_reservation" attrs="{'invisible': [('m_hotel', '=', False)]}"/>
                               <field name="m_hotel_name" attrs="{'invisible': ['|', ('m_hotel', '=', False), ('m_reservation', '=', False)]}"/>
                             </group>
@@ -75,8 +75,8 @@
                         <group name="optiongroup" string="Option" colspan="2">
                             <group name="optionleftgroup">
                                 <field name="m_prp"/> 
-                                <field name="m_prp_amount" widget="char" attrs="{'invisible': [('m_prp', '!=', 'invoiced')]}"/>
-                                <field name="m_extra_graft" widget="char"/>
+                                <field name="m_prp_amount" attrs="{'invisible': [('m_prp', '!=', 'invoiced')]}"/>
+                                <field name="m_extra_graft"/>
                             </group>
                             <group name="optionrightgroup">
                                 <field name="m_srv"/>
@@ -160,7 +160,7 @@
                     <field name="m_second_doctor"/>
                     <field name="m_second_doctor_time"/>
                     <field name="m_stage_selection"/>
-                    <field name="m_graft_number" widget="char"/>
+                    <field name="m_graft_number"/>
                 </tree>
             </field>
         </record>
