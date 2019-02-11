@@ -56,7 +56,7 @@
                             <group name="patientinfo" colspan="2">
                                 <field name="m_patient"/>
                                 <field name="m_patient_gender"/>
-                                <field name="m_patient_yo" widget="char"/>
+                                <field name="m_patient_yo"/>
                                 <field name="m_patient_mail"/>
                                 <field name="m_patient_mobile"/>
                             </group>
