@@ -278,9 +278,17 @@
 							  	<t t-else="">Avez-vous déjà eu recours à la Greffe des Cheveux ? </t>
 
 								<select name="grafted" class="form-control o_website_form_input" style="margin-top:10px;">
-									<option value="no">Non</option>
-									<option value="fue">Oui, c'était une opération de type FUE</option>
-									<option value="fut">Oui, c'était une opération de type FUT</option>
+									<option t-if="lang == 'en'">No</option>
+							  		<option t-elif="lang == 'pt'">Non</option>
+							  		<option t-else="">Non</option>
+
+							  		<option t-if="lang == 'en'">Yes, it was a FUE type operation</option>
+							  		<option t-elif="lang == 'pt'">Oui, c'était une opération de type FUE</option>
+							  		<option t-else="">Oui, c'était une opération de type FUE</option>
+
+							  		<option t-if="lang == 'en'">Yes, it was a FUT type operation</option>
+							  		<option t-elif="lang == 'pt'">Oui, c'était une opération de type FUT</option>
+							  		<option t-else="">Oui, c'était une opération de type FUT</option>
 								</select>
 
 								<!-- span class="grey">
