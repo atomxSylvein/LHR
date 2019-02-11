@@ -271,7 +271,7 @@
 							</table>
 						</div>
 
-						<div class="space">
+						<div class="space"> 
 							<h5>
 								<t t-if="lang == 'en'">Have you ever used the hair transplant ?</t>
 							  	<t t-elif="lang == 'pt'">Avez-vous déjà eu recours à la Greffe des Cheveux ? </t>
