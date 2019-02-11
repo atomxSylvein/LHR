@@ -6,7 +6,7 @@
 				<div class="paper">
 
 					<h1 style="color:#33cba5;margin-bottom:20px;font-family:museo-sans,sans-serif;">
-						<!-- a href="https://lisboahair-stage-274812.dev.odoo.com/en_EN/formulaire-contact">
+						<a href="https://lisboahair-stage-274812.dev.odoo.com/en_EN/formulaire-contact">
 							<img style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;" src="http://www.lisboa-hair.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="en" title="English"/>
 						</a>
 						<a href="https://lisboahair-stage-274812.dev.odoo.com/pt_PT/formulaire-contact">
@@ -14,7 +14,7 @@
 						</a>
 						<a href="https://lisboahair-stage-274812.dev.odoo.com/fr_FR/formulaire-contact">
 							<img style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;" src="http://www.lisboa-hair.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt="en" title="English"/>
-						</a -->
+						</a>
 						<div style="center">Contact</div>
 					</h1>
 					<br/>
