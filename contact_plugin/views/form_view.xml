@@ -10,7 +10,7 @@
 				<!-- match and extend form element here -->
 				<div class="o_address_format" position="after">
 					<field name="m_gender" attrs="{'invisible': [('is_company','=', True)]}"/>
-					<field name="m_years_old" attrs="{'invisible': [('is_company','=', True)]}"/>
+					<field name="m_years_old" widget="char" attrs="{'invisible': [('is_company','=', True)]}"/>
 					<field name="m_graft" attrs="{'invisible': [('is_company','=', True)]}"/>
 				</div>
 
@@ -26,13 +26,14 @@
 				<field name="lang" position="replace"/>
 				<field name="category_id" position="replace"/>
 				<field name="vat" position="replace"/>
+				<field name="function" position="replace"/>
 
 				<notebook position="before">
 					<group name="intervention" string="Intervention">
 						<group name="intervention_left">
 							<field name="m_last_intervention"/>
 							<field name="m_intervention_type" attrs="{'invisible': [('m_last_intervention','=', False)]}"/>
-							<field name="m_graft_number" attrs="{'invisible': [('m_last_intervention','=', False)]}"/>
+							<field name="m_graft_number" widget="char" attrs="{'invisible': [('m_last_intervention','=', False)]}"/>
 							<field name="m_intervention_date" attrs="{'invisible': [('m_last_intervention','=', False)]}"/>
 						</group>
 					</group>

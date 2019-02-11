@@ -43,9 +43,9 @@ class Operation(models.Model):
 
 	#medecin et relatives
 	m_first_doctor = fields.Many2one('hr.employee', string="Médecin 1")
-	m_first_doctor_time = fields.Selection([("half", "Demi-journée"), ("full", "Journée")], string="Temps opération médecin 1", default="half")
+	m_first_doctor_time = fields.Selection([("half", "Demi-journée"), ("full", "Journée")], string="Temps opération médecin 1")
 	m_second_doctor = fields.Many2one('hr.employee', string="Médecin 2")
-	m_second_doctor_time = fields.Selection([("half", "Demi-journée"), ("full", "Journée")], string="Temps opération médecin 2", default="half")
+	m_second_doctor_time = fields.Selection([("half", "Demi-journée"), ("full", "Journée")], string="Temps opération médecin 2")
 	m_first_doctor_name = fields.Char(related='m_first_doctor.name', store=False, readonly=True)
 	m_second_doctor_name = fields.Char(related='m_second_doctor.name', store=False, readonly=True)
 
@@ -55,7 +55,7 @@ class Operation(models.Model):
 	m_preoperative_consultation = fields.Datetime(string="Consultation préopératoire")
 
 	#provenance du patient
-	m_patient_origin = fields.Selection([("lisboa", "Lisbonne"), ("arpega", "Site web ARPEGA"), ("jalis", "Site web JALIS"), ("ehi", "Site web EHI"), ("facebook", "Facebook"), ("instagram", "Instagram"), ("greg", "Greg"), ("prescriber", "Prescripteur")], string="Origine du patient", default="lisboa")
+	m_patient_origin = fields.Selection([("lisboa", "Lisbonne"), ("arpega", "Site web ARPEGA"), ("jalis", "Site web JALIS"), ("ehi", "Site web EHI"), ("facebook", "Facebook"), ("instagram", "Instagram"), ("greg", "Greg"), ("prescriber", "Prescripteur")], string="Origine du patient")
 	m_prescriber_name = fields.Char(string="Nom du prescripteur")
 	m_commission = fields.Boolean(default=False, string="Avec commission")
 	m_acompte = fields.Boolean(default=False, string="Acompte patient", track_visibility='onchange')
@@ -68,7 +68,7 @@ class Operation(models.Model):
 	m_intervention_date = fields.Text(string="Date des interventions")
 
 	#options
-	m_prp = fields.Selection([("invoiced", "PRP facturé"), ("not_invoiced", "PRP non facturé")], string="PRP", default="invoiced")
+	m_prp = fields.Selection([("invoiced", "PRP facturé"), ("not_invoiced", "PRP non facturé")], string="PRP")
 	m_prp_amount = fields.Integer(string="Montant PRP facturé")
 	m_srv = fields.Boolean(string="Supplément sans rasage visible SRV", default=False)
 	m_srvzd = fields.Boolean(string="Supplément sans rasage visible SRVZD", default=False)
@@ -105,7 +105,7 @@ class Operation(models.Model):
 	m_treat_top = fields.Binary(string="Zone à traiter (dessus)")
 
 	#partie patient
-	m_patient = fields.Many2one('res.partner', string="Client", required=True)
+	m_patient = fields.Many2one('res.partner', string="Patient", required=True)
 	m_patient_name = fields.Char(related='m_patient.name', store=False, readonly=True)
 	m_patient_mail = fields.Char(related='m_patient.email', string="Email", store=False, readonly=True)
 	m_patient_yo = fields.Integer(related='m_patient.m_years_old', string="Âge", store=False, readonly=True)
