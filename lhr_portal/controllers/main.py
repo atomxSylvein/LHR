@@ -22,6 +22,8 @@ class Main(Website):
 	@http.route('/lhr-created', type='http', auth='public', website=True)
 	def create_devis(self, **post):
 
+		#_type = 'fue' if str(post.get('grafted')) == "fue" else "fut",
+
 		#Create contact first
 		contact = request.env['res.partner'].sudo().create({
 			'name': ' '.join([post.get('lastname'), post.get('firstname')]),
@@ -34,7 +36,9 @@ class Main(Website):
 			'country_id' : int(post.get('country')),
 			'm_gender': 'man' if str(post.get('gender')) == 'man' else 'woman',
 			'm_years_old': int(post.get('yo')),
-			'm_graft': True if str(post.get('grafted')) == "yes" else False,
+			'm_graft': False if str(post.get('grafted')) == "no" else True,
+			'm_last_intervention': False if str(post.get('grafted')) == "no" else True,
+			'm_type': 'fue' if str(post.get('grafted')) == "fue" else "fut" if str(post.get('grafted')) == "fut" else "",
 		})
 
 		#determine baldness degree
