@@ -3,7 +3,7 @@
 		<t t-call="website.layout">
 			<form action="/fr_FR/formulaire-contact" method="post" enctype="multipart/form-data">
 
-				<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+				<!-- input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/ -->
 				<input type="hidden" name="source" value="http://www.lisboa-hair.com/?lang=en/"/>
 
 				<button class="btn btn-block btn-primary o_website_form_send" style="max-width: 20%;">Envoyer</button>
