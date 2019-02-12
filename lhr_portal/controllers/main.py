@@ -9,12 +9,12 @@ class Main(Website):
 	#homepage
 	"""@http.route('/', type='http', auth='public', website=True)
 	def index(self, **kw):
-		return request.render('lhr_portal.accueil', {} )
+		return request.render('lhr_portal.accueil', {} )"""
 	@http.route('/page', auth='user', website=True)
 	def blank(self):
-		return request.render('lhr_portal.blank', {})"""
+		return request.render('lhr_portal.blank', {})
 
-	@http.route('/<lang>/formulaire-contact', auth='public', website=True, csrf=False)
+	@http.route('/<lang>/formulaire-contact', type='http', auth='public', website=True, csrf=False)
 	def formulaire_devis(self, lang=None, **post):
 		#récupération des pays
 		country_environment = request.env['res.country']
