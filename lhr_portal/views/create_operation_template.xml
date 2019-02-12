@@ -19,7 +19,7 @@
 								</a>
 							</td>
 							<td>
-								<a href="https://lisboahair-stage-274812.dev.odoo.com/fr_FR/formulaire-contact">
+								<a t-attf-href="path['pt']">
 									<img style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;" src="http://www.lisboa-hair.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt="en" title="Français"/>
 								</a>
 							</td>
@@ -27,9 +27,7 @@
 						</table>
 						<div style="center" t-if="lang == 'pt'">Contato</div>
 					  	<div  style="center" t-else="">Contact</div>
-					  	<t t-esc="path1"/>
-					  	<t t-esc="path2"/>
-					  	<t t-esc="path3"/>
+					  	path exemple : <t t-esc="path['en']"/> <br/>
 					</h1>
 					<br/>
 					<form action="/lhr-created" method="post" enctype="multipart/form-data">
