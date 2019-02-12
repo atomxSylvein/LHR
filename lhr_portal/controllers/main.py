@@ -10,7 +10,7 @@ class Main(Website):
 	"""@http.route('/', type='http', auth='public', website=True)
 	def index(self, **kw):
 		return request.render('lhr_portal.accueil', {} )"""
-	@http.route('/page', auth='public', website=True)
+	@http.route('/page', auth='user', website=True)
 	def blank(self):
 		return request.render('lhr_portal.blank', {})
 
