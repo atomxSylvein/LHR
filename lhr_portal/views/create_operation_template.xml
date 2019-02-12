@@ -6,7 +6,7 @@
 				<div class="paper">
 
 					<h1 style="color:#33cba5;margin-bottom:20px;font-family:museo-sans,sans-serif;">
-						<<table align="right" style="margin-top:-20px;">
+						<table align="right" style="margin-top:-20px;">
 					    <tr>
 							<td>
 							  <form action="/en_EN/formulaire-contact" method="post" enctype="multipart/form-data">
