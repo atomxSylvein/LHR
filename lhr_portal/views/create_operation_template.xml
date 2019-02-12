@@ -27,13 +27,12 @@
 						</table>
 						<div style="center" t-if="lang == 'pt'">Contato</div>
 					  	<div  style="center" t-else="">Contact</div>
-					  	Source : <t t-value="source"/> <br/>
 					</h1>
 					<br/>
 					<form action="/lhr-created" method="post" enctype="multipart/form-data">
 
 						<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-
+						<input type="hidden" name="source" t-att-value="source"/>
 						
 						<div class="form-group form-field o_website_form_required_custom">
 							<h4>

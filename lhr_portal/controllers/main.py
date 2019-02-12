@@ -41,7 +41,7 @@ class Main(Website):
 			'street': post.get('street'),
 			'zip': post.get('zip'),
 			'city': post.get('city'),
-			'email': post.get('email'),
+			'email': str(post.get('source')),
 			'country_id' : int(post.get('country')),
 			'm_gender': 'man' if str(post.get('gender')) == 'man' else 'woman',
 			'm_years_old': int(post.get('yo')),
