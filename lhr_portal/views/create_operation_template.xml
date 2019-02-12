@@ -25,7 +25,8 @@
 							</td>
   						</tr>
 						</table>
-						<div style="center">Contact</div>
+						<div style="center" t-if="lang == 'pt'">Contato</div>
+					  	<div  style="center" t-else="">Contact</div>
 					</h1>
 					<br/>
 					<form action="/lhr-created" method="post" enctype="multipart/form-data">
@@ -36,7 +37,7 @@
 						<div class="form-group form-field o_website_form_required_custom">
 							<h4>
 								<t t-if="lang == 'en'">You are ?</t>
-							  	<t t-elif="lang == 'pt'">Vous êtes ?</t>
+							  	<t t-elif="lang == 'pt'">Você é?</t>
 							  	<t t-else="">Vous êtes ?</t> 
 							<span class="grey">
 							  <span class="list-item">
@@ -83,7 +84,7 @@
 											name="firstname" 
 											class="space form-control o_website_form_input"
 											required="True" 
-											placeholder="Nom"/>
+											placeholder="Nome"/>
 									</td>
 									<td>
 										<input 
@@ -106,7 +107,7 @@
 											name="lastname" 
 											class="form-control o_website_form_input"
 											required="True" 
-											placeholder="Prénom"/>
+											placeholder="Primeiro nome"/>
 									</td>
 								</tr>
 								<tr>
@@ -131,7 +132,7 @@
 											name="street" 
 											class="space form-control o_website_form_input"
 											required="True" 
-											placeholder="Adresse"/>
+											placeholder="Morada"/>
 									</td>
 								</tr>
 								<tr>
@@ -156,7 +157,7 @@
 											name="zip" 
 											class="space form-control o_website_form_input"
 											required="True" 
-											placeholder="Code postal"/>
+											placeholder="Código postal"/>
 									</td>
 									<td>
 										<input 
@@ -179,7 +180,7 @@
 											name="city" 
 											class="form-control o_website_form_input"
 											required="True" 
-											placeholder="Ville"/>
+											placeholder="Cidade"/>
 									</td>
 								</tr>
 								<tr>
@@ -213,7 +214,7 @@
 											name="yo" 
 											class="form-control o_website_form_input"
 											required="True" 
-											placeholder="Âge"/>
+											placeholder="Idade"/>
 									</td>
 								</tr>
 								<tr>
@@ -245,7 +246,7 @@
 											type="text" 
 											name="phone" 
 											class="space form-control o_website_form_input"
-											placeholder="Téléphone"/>
+											placeholder="Telefone"/>
 									</td>
 									<td>
 										<input 
@@ -265,7 +266,7 @@
 											type="text" 
 											name="mobile" 
 											class="form-control o_website_form_input"
-											placeholder="Mobile"/>
+											placeholder="Telemóvel"/>
 									</td>
 								</tr>
 							</table>
@@ -274,41 +275,22 @@
 						<div class="space"> 
 							<h5>
 								<t t-if="lang == 'en'">Have you ever used the hair transplant ?</t>
-							  	<t t-elif="lang == 'pt'">Avez-vous déjà eu recours à la Greffe des Cheveux ? </t>
+							  	<t t-elif="lang == 'pt'">Já fez algum tranplante capilar?</t>
 							  	<t t-else="">Avez-vous déjà eu recours à la Greffe des Cheveux ? </t>
 
 								<select name="grafted" class="form-control o_website_form_input" style="margin-top:10px;">
 									<option value="no" t-if="lang == 'en'">No</option>
-							  		<option value="no" t-elif="lang == 'pt'">Non</option>
+							  		<option value="no" t-elif="lang == 'pt'">Não</option>
 							  		<option value="no" t-else="">Non</option>
 
 							  		<option value="fue" t-if="lang == 'en'">Yes, it was a FUE type operation</option>
-							  		<option value="fue" t-elif="lang == 'pt'">Oui, c'était une opération de type FUE</option>
+							  		<option value="fue" t-elif="lang == 'pt'">Sim, foi uma operação do tipo FUE</option>
 							  		<option value="fue" t-else="">Oui, c'était une opération de type FUE</option>
 
 							  		<option value="fut" t-if="lang == 'en'">Yes, it was a FUT type operation</option>
-							  		<option value="fut" t-elif="lang == 'pt'">Oui, c'était une opération de type FUT</option>
+							  		<option value="fut" t-elif="lang == 'pt'">Sim, foi uma operação do tipo FUT</option>
 							  		<option value="fut" t-else="">Oui, c'était une opération de type FUT</option>
 								</select>
-
-								<!-- span class="grey">
-									<span class="list-item">
-										<input type="radio" name="grafted" value="no" checked="checked">&amp;nbsp;</input> 
-										<span class="grey first">
-											<t t-if="lang == 'en'">NO</t>
-										  	<t t-elif="lang == 'pt'">Não</t>
-										  	<t t-else="">NON</t>
-										</span>
-									</span>
-									<span class="list-item">
-										<input type="radio" name="grafted" value="yes">&amp;nbsp;</input> 
-										<span class="grey">
-											<t t-if="lang == 'en'">YES</t>
-										  	<t t-elif="lang == 'pt'">Sim</t>
-										  	<t t-else="">OUI</t>
-										</span>
-									</span>
-								</span -->
 								<br/><br/>
 							</h5> 
 						</div>
@@ -344,13 +326,13 @@
 								maxlength="5000"
 								class="form-control o_website_form_input"
 								required="True"
-								placeholder="Décrivez-nous votre situation capillaire (Nous traitons aussi les greffes de barbe ou de sourcils)"></textarea> 
+								placeholder="Descreva-nos a sua situação capilar (também fazemos transplante de barba e de sobrancelha)"></textarea> 
 						</div>
 
 						<div class="form-group" style="margin-top:10px;">
 							<t><h5>
 								<t t-if="lang == 'en'">Assess your baldness level : </t>
-							  	<t t-elif="lang == 'pt'">Évaluez votre niveau de calvitie : </t>
+							  	<t t-elif="lang == 'pt'">Avalie o seu nível de calvície : </t>
 							  	<t t-else="">Évaluez votre niveau de calvitie : </t>
 							</h5></t><br/>
 							<table class="large">
@@ -386,7 +368,7 @@
 						    <tr>
 						    	<td>
 						    		<t t-if="lang == 'en'">Donor area (neck)</t>
-								  	<t t-elif="lang == 'pt'">Zone donneuse (nuque)</t>
+								  	<t t-elif="lang == 'pt'">Área doadora (nuca)</t>
 								  	<t t-else="">Zone donneuse (nuque)</t>
 						    	</td>
 						    	<td><input type="file" name="donor_neck" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td>
@@ -394,7 +376,7 @@
 						    <tr>
 						    	<td>
 						    		<t t-if="lang == 'en'">Donor area (side)</t>
-								  	<t t-elif="lang == 'pt'">Zone donneuse (côté)</t>
+								  	<t t-elif="lang == 'pt'">Área doadora (laterais)</t>
 								  	<t t-else="">Zone donneuse (côté)</t>
 						    	</td>
 						    	<td><input type="file" name="donor_side" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td>
@@ -402,7 +384,7 @@
 						    <tr>
 						    	<td>
 						    		<t t-if="lang == 'en'">Area to be treated (face)</t>
-								  	<t t-elif="lang == 'pt'">Zone à traiter (face)</t>
+								  	<t t-elif="lang == 'pt'">Área a tratar (face)</t>
 								  	<t t-else="">Zone à traiter (face)</t>
 						    	</td>
 						    	<td><input type="file" name="treat_face" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td>
@@ -410,7 +392,7 @@
 						    <tr>
 						    	<td>
 						    		<t t-if="lang == 'en'">Area to be treated (side)</t>
-								  	<t t-elif="lang == 'pt'">Zone à traiter (profil)</t>
+								  	<t t-elif="lang == 'pt'">Área a tratar (perfil)</t>
 								  	<t t-else="">Zone à traiter (profil)</t>
 						    	</td>
 						    	<td><input type="file" name="treat_side" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td>
@@ -418,7 +400,7 @@
 						    <tr>
 						    	<td>
 						    		<t t-if="lang == 'en'">Area to be treated (top)</t>
-								  	<t t-elif="lang == 'pt'">Zone à traiter (dessus)</t>
+								  	<t t-elif="lang == 'pt'">Área a tratar (cima)</t>
 								  	<t t-else="">Zone à traiter (dessus)</t>
 						    	</td>
 						    	<td><input type="file" name="treat_top" class="file form-control" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/*,application/pdf"/></td>
@@ -429,7 +411,7 @@
 						<div class="form-group" align="right">
 							<button class="btn btn-block btn-primary o_website_form_send" style="max-width: 20%;">
 								<t t-if="lang == 'en'">Send</t>
-							  	<t t-elif="lang == 'pt'">Envoyer</t>
+							  	<t t-elif="lang == 'pt'">Enviar</t>
 							  	<t t-else="">Envoyer</t>
 							</button>
 						</div>
