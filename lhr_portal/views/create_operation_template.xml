@@ -29,10 +29,11 @@
 					  	<div  style="center" t-else="">Contact</div>
 					</h1>
 					<br/>
-					<form action="/lhr-created" method="post" enctype="multipart/form-data">
+					<form action="/success" method="post" enctype="multipart/form-data">
 
 						<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
 						<input type="hidden" name="source" t-att-value="source"/>
+						<input type="hidden" name="lang" t-att-value="lang"/>
 						
 						<div class="form-group form-field o_website_form_required_custom">
 							<h4>

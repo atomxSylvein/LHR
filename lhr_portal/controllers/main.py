@@ -30,18 +30,18 @@ class Main(Website):
 
 		return request.render('lhr_portal.create_operation', { 'countries' : countries, 'lang':language, 'path':path, 'source':post.get('source'),} )
 
-	@http.route('/lhr-created', type='http', auth='public', website=True)
+	@http.route('/success', type='http', auth='public', website=True)
 	def create_devis(self, **post):
 
 		#Create contact first
-		contact = request.env['res.partner'].sudo().create({
+		"""contact = request.env['res.partner'].sudo().create({
 			'name': ' '.join([post.get('lastname'), post.get('firstname')]),
 			'phone': post.get('phone'),
 			'mobile': post.get('mobile'),
 			'street': post.get('street'),
 			'zip': post.get('zip'),
 			'city': post.get('city'),
-			'email': str(post.get('source')),
+			'email': str(post.get('email')),
 			'country_id' : int(post.get('country')),
 			'm_gender': 'man' if str(post.get('gender')) == 'man' else 'woman',
 			'm_years_old': int(post.get('yo')),
@@ -71,5 +71,5 @@ class Main(Website):
 			'm_treat_side' : base64.b64encode(post.get('treat_side').read()) if post.get('treat_side',False) else None,
 			'm_treat_top_filename' : str(post.get('treat_top').filename) if post.get('treat_top',False) else None,
 			'm_treat_top' : base64.b64encode(post.get('treat_top').read()) if post.get('treat_top',False) else None,
-		})
-		return http.request.redirect('/') #return http.request.redirect('http://www.lisboa-hair.com/')
+		})"""
+		return request.render('lhr_portal.success', {'source':post.get('source'),'lang':post.get('lang'),} )
