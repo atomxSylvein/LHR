@@ -6,22 +6,28 @@
 				<div class="paper">
 
 					<h1 style="color:#33cba5;margin-bottom:20px;font-family:museo-sans,sans-serif;">
-						<table align="right" style="margin-top:-20px;">
+						<<table align="right" style="margin-top:-20px;">
 					    <tr>
 							<td>
-								<a t-attf-href="{{path['en']}}">
-									<img style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;" src="http://www.lisboa-hair.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="en" title="English"/>
-								</a>
+							  <form action="/en_EN/formulaire-contact" method="post" enctype="multipart/form-data">
+									<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+									<input type="hidden" name="source" t-att-value="source"/>
+									<input type="image" class="o_website_form_send" style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;" src="http://www.lisboa-hair.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="en" title="English"/>
+								</form>
 							</td>
 							<td>
-								<a t-attf-href="{{path['pt']}}">
-									<img style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;" src="http://www.lisboa-hair.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/pt-pt.png" alt="pt" title="Português"/>
-								</a>
+							  <form action="/pt_PT/formulaire-contact" method="post" enctype="multipart/form-data">
+									<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+									<input type="hidden" name="source" t-att-value="source"/>
+									<input type="image" class="o_website_form_send" style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;" src="http://www.lisboa-hair.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/pt-pt.png" alt="pt" title="Português"/>
+								</form>
 							</td>
 							<td>
-								<a t-attf-href="{{path['fr']}}">
-									<img style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;" src="http://www.lisboa-hair.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt="fr" title="Français"/>
-								</a>
+							  <form action="/fr_FR/formulaire-contact" method="post" enctype="multipart/form-data">
+									<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+									<input type="hidden" name="source" t-att-value="source"/>
+									<input type="image" class="o_website_form_send" style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;" src="http://www.lisboa-hair.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt="fr" title="Français"/>
+								</form>
 							</td>
   						</tr>
 						</table>

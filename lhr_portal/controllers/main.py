@@ -34,7 +34,7 @@ class Main(Website):
 	def create_devis(self, **post):
 
 		#Create contact first
-		"""contact = request.env['res.partner'].sudo().create({
+		contact = request.env['res.partner'].sudo().create({
 			'name': ' '.join([post.get('lastname'), post.get('firstname')]),
 			'phone': post.get('phone'),
 			'mobile': post.get('mobile'),
@@ -71,5 +71,5 @@ class Main(Website):
 			'm_treat_side' : base64.b64encode(post.get('treat_side').read()) if post.get('treat_side',False) else None,
 			'm_treat_top_filename' : str(post.get('treat_top').filename) if post.get('treat_top',False) else None,
 			'm_treat_top' : base64.b64encode(post.get('treat_top').read()) if post.get('treat_top',False) else None,
-		})"""
+		})
 		return request.render('lhr_portal.success', {'source':post.get('source'),'lang':post.get('lang'),} )
