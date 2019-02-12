@@ -1,0 +1,31 @@
+<odoo>
+	<template id="success">
+
+		<t t-set="head">
+			<meta t-if="not source" name="redirection" http-equiv="refresh" content="5; URL='http://www.lisboa-hair.com/'"/>
+			<meta t-else="" name="redirection" http-equiv="refresh" t-attf-content="5; URL={{source}}"/>
+    	</t>
+
+		<t t-call="website.layout">
+
+			<div class="paper_background">
+				<div class="paper">
+
+					<h1 style="color:#33cba5;margin-bottom:20px;font-family:museo-sans,sans-serif;">
+						
+						<div style="center" t-if="lang == 'en'">
+							Your quote request has been taken into account, redirection in 5 seconds ...
+						</div>
+						<div style="center" t-elif="lang == 'fr'">
+							Votre demande de devis a bien été prise en compte, redirection dans 5 secondes ...
+						</div>
+					  	<div style="center" t-else="">
+					  		Sua solicitação de cotação foi considerada, redirecionamento em 5 segundos ...
+					  	</div>
+					  	
+					</h1>
+				</div>
+			</div>
+		</t>
+	</template>
+</odoo>

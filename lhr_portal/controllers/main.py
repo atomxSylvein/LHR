@@ -10,16 +10,27 @@ class Main(Website):
 	"""@http.route('/', type='http', auth='public', website=True)
 	def index(self, **kw):
 		return request.render('lhr_portal.accueil', {} )"""
+	@http.route('/page', auth='user', website=True)
+	def blank(self):
+		return request.render('lhr_portal.blank', {})
 
-	@http.route('/<lang>/formulaire-contact', auth='public', website=True)
-	def formulaire_devis(self, lang=None):
+	@http.route('/<lang>/formulaire-contact', auth='public', website=True, csrf=False)
+	def formulaire_devis(self, lang=None, **post):
 		#récupération des pays
 		country_environment = request.env['res.country']
 		countries = country_environment.sudo().search([])
 		language = "fr" if lang == "fr_FR" else "en" if lang == "en_EN" else "pt"
-		return request.render('lhr_portal.create_operation', { 'countries' : countries, 'lang':language} )
 
-	@http.route('/lhr-created', type='http', auth='public', website=True)
+		#get full paths
+		baseUrl = http.request.env['ir.config_parameter'].get_param('web.base.url')
+		path = {}
+		path['en'] = baseUrl + "/en_EN/formulaire-contact"
+		path['fr'] = baseUrl + "/fr_FR/formulaire-contact"
+		path['pt'] = baseUrl + "/pt_PT/formulaire-contact"
+
+		return request.render('lhr_portal.create_operation', { 'countries' : countries, 'lang':language, 'path':path, 'source':post.get('source'),} )
+
+	@http.route('/success', type='http', auth='public', website=True)
 	def create_devis(self, **post):
 
 		#Create contact first
@@ -30,7 +41,7 @@ class Main(Website):
 			'street': post.get('street'),
 			'zip': post.get('zip'),
 			'city': post.get('city'),
-			'email': post.get('email'),
+			'email': str(post.get('email')),
 			'country_id' : int(post.get('country')),
 			'm_gender': 'man' if str(post.get('gender')) == 'man' else 'woman',
 			'm_years_old': int(post.get('yo')),
@@ -61,4 +72,4 @@ class Main(Website):
 			'm_treat_top_filename' : str(post.get('treat_top').filename) if post.get('treat_top',False) else None,
 			'm_treat_top' : base64.b64encode(post.get('treat_top').read()) if post.get('treat_top',False) else None,
 		})
-		return http.request.redirect('/') #return http.request.redirect('http://www.lisboa-hair.com/')
+		return request.render('lhr_portal.success', {'source':post.get('source'),'lang':post.get('lang'),} )
