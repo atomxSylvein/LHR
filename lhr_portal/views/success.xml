@@ -2,9 +2,7 @@
 	<template id="success">
 
 		<t t-set="head">
-			<SCRIPT LANGUAGE="JavaScript">
-				document.location.href="https://www.google.com"
-			</SCRIPT>
+			<meta name="redirection" http-equiv="refresh" t-attf-content="5; URL={{source}}"/>
     	</t>
 
 		<t t-call="website.layout">
