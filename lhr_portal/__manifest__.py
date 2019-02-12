@@ -24,6 +24,7 @@
         'views/footer.xml',
         'views/header.xml',
         'views/tab_name.xml',
+        'views/blank.xml',
     ],
     'images': [
         'static/src/img/man_1.png',

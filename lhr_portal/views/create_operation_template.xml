@@ -9,25 +9,25 @@
 						<table align="right" style="margin-top:-20px;">
 					    <tr>
 							<td>
-								<a href="https://lisboahair-stage-274812.dev.odoo.com/en_EN/formulaire-contact">
+								<a t-attf-href="{{path['en']}}">
 									<img style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;" src="http://www.lisboa-hair.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="en" title="English"/>
 								</a>
 							</td>
 							<td>
-								<a href="https://lisboahair-stage-274812.dev.odoo.com/pt_PT/formulaire-contact">
-									<img style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;" src="http://www.lisboa-hair.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/pt-pt.png" alt="en" title="Português"/>
+								<a t-attf-href="{{path['pt']}}">
+									<img style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;" src="http://www.lisboa-hair.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/pt-pt.png" alt="pt" title="Português"/>
 								</a>
 							</td>
 							<td>
-								<a t-attf-href="path['pt']">
-									<img style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;" src="http://www.lisboa-hair.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt="en" title="Français"/>
+								<a t-attf-href="{{path['fr']}}">
+									<img style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;" src="http://www.lisboa-hair.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt="fr" title="Français"/>
 								</a>
 							</td>
   						</tr>
 						</table>
 						<div style="center" t-if="lang == 'pt'">Contato</div>
 					  	<div  style="center" t-else="">Contact</div>
-					  	path exemple : <t t-esc="path['en']"/> <br/>
+					  	Source : <t t-value="source"/> <br/>
 					</h1>
 					<br/>
 					<form action="/lhr-created" method="post" enctype="multipart/form-data">

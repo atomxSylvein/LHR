@@ -10,22 +10,25 @@ class Main(Website):
 	"""@http.route('/', type='http', auth='public', website=True)
 	def index(self, **kw):
 		return request.render('lhr_portal.accueil', {} )"""
+	@http.route('/page', auth='public', website=True)
+	def blank(self):
+		return request.render('lhr_portal.blank', {})
 
 	@http.route('/<lang>/formulaire-contact', auth='public', website=True)
-	def formulaire_devis(self, lang=None):
+	def formulaire_devis(self, lang=None, **post):
 		#récupération des pays
 		country_environment = request.env['res.country']
 		countries = country_environment.sudo().search([])
 		language = "fr" if lang == "fr_FR" else "en" if lang == "en_EN" else "pt"
 
-		#get full path
+		#get full paths
 		baseUrl = http.request.env['ir.config_parameter'].get_param('web.base.url')
 		path = {}
 		path['en'] = baseUrl + "/en_EN/formulaire-contact"
 		path['fr'] = baseUrl + "/fr_FR/formulaire-contact"
 		path['pt'] = baseUrl + "/pt_PT/formulaire-contact"
 
-		return request.render('lhr_portal.create_operation', { 'countries' : countries, 'lang':language, 'path':path,} )
+		return request.render('lhr_portal.create_operation', { 'countries' : countries, 'lang':language, 'path':path, 'source':post.get('source'),} )
 
 	@http.route('/lhr-created', type='http', auth='public', website=True)
 	def create_devis(self, **post):
