@@ -17,7 +17,13 @@ class Main(Website):
 		country_environment = request.env['res.country']
 		countries = country_environment.sudo().search([])
 		language = "fr" if lang == "fr_FR" else "en" if lang == "en_EN" else "pt"
-		return request.render('lhr_portal.create_operation', { 'countries' : countries, 'lang':language} )
+
+		#get full path
+		path1 = http.request.env['ir.config_parameter'].get_param('web.base.url') # BASE URL
+		path2 = http.request.httprequest 
+		path3 = http.request.httprequest.full_path
+
+		return request.render('lhr_portal.create_operation', { 'countries' : countries, 'lang':language, 'path1':path1, 'path2':path2, 'path3':path3,} )
 
 	@http.route('/lhr-created', type='http', auth='public', website=True)
 	def create_devis(self, **post):

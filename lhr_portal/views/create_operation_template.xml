@@ -27,6 +27,9 @@
 						</table>
 						<div style="center" t-if="lang == 'pt'">Contato</div>
 					  	<div  style="center" t-else="">Contact</div>
+					  	<t t-esc="path1"/>
+					  	<t t-esc="path2"/>
+					  	<t t-esc="path3"/>
 					</h1>
 					<br/>
 					<form action="/lhr-created" method="post" enctype="multipart/form-data">
