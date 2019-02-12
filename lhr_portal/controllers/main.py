@@ -20,6 +20,7 @@ class Main(Website):
 
 		#get full path
 		baseUrl = http.request.env['ir.config_parameter'].get_param('web.base.url')
+		path = []
 		path['en'] = baseUrl + "/en_EN/formulaire-contact"
 		path['fr'] = baseUrl + "/fr_FR/formulaire-contact"
 		path['pt'] = baseUrl + "/pt_PT/formulaire-contact"
