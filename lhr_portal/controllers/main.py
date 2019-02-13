@@ -18,7 +18,7 @@ class Main(Website):
 	@http.route('/formulaire-contact', auth="public", website=True)
 	def formulaire_devis(self, **post):
 		#récupération des pays
-		country_environment = request.env['res.country']
+		country_environment = request.env['res.country'] 
 		countries = {}#country_environment.sudo().search([])
 		language = "fr"# if lang == "fr_fr" else "en" if lang == "en_en" else "pt"
 
