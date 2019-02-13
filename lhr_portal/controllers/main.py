@@ -10,19 +10,19 @@ class Main(Website):
 	"""@http.route('/', type='http', auth='public', website=True)
 	def index(self, **kw):
 		return request.render('lhr_portal.accueil', {} )"""
-	@http.route('/page', auth='user', website=True)
+	@http.route('/page', auth="public", website=True)
 	def blank(self):
 		return request.render('lhr_portal.blank', {})
 
-	@http.route('/<lang>/formulaire-contact', type='http', auth='public', website=True, csrf=False)
+	@http.route('/<lang>/formulaire-contact', auth="public", website=True, csrf=False)
 	def formulaire_devis(self, lang=None, **post):
 		#récupération des pays
-		country_environment = request.env['res.country']
+		country_environment = request.env['res.country'] 
 		countries = country_environment.sudo().search([])
 		language = "fr" if lang == "fr_FR" else "en" if lang == "en_EN" else "pt"
 
 		#get full paths
-		baseUrl = http.request.env['ir.config_parameter'].get_param('web.base.url')
+		baseUrl = "base"#http.request.env['ir.config_parameter'].get_param('web.base.url')
 		path = {}
 		path['en'] = baseUrl + "/en_EN/formulaire-contact"
 		path['fr'] = baseUrl + "/fr_FR/formulaire-contact"

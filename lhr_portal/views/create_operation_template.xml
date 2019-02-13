@@ -11,7 +11,7 @@
 							<td>
 							  <form action="/en_EN/formulaire-contact" method="post" enctype="multipart/form-data">
 									<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-									<input type="hidden" name="source" t-att-value="source"/>
+									<input type="hidden" name="source" t-att-value="source"/> 
 									<input type="image" class="o_website_form_send" style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;" src="http://www.lisboa-hair.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="en" title="English"/>
 								</form>
 							</td>
