@@ -28,22 +28,35 @@ class Main(Website):
 	@http.route('/success', type='http', auth='public', website=True)
 	def create_devis(self, **post):
 
-		#Create contact first
-		contact = request.env['res.partner'].sudo().create({
-			'name': ' '.join([post.get('lastname'), post.get('firstname')]),
-			'phone': post.get('phone'),
-			'mobile': post.get('mobile'),
-			'street': post.get('street'),
-			'zip': post.get('zip'),
-			'city': post.get('city'),
-			'email': str(post.get('email')),
-			'country_id' : int(post.get('country')),
-			'm_gender': 'man' if str(post.get('gender')) == 'man' else 'woman',
-			'm_years_old': int(post.get('yo')),
-			'm_graft': False if str(post.get('grafted')) == "no" else True,
-			'm_last_intervention': False if str(post.get('grafted')) == "no" else True,
-			'm_intervention_type': 'fue' if str(post.get('grafted')) == "fue" else "fut" if str(post.get('grafted')) == "fut" else "",
-		})
+		contact_environment = request.env['res.partner']
+
+		#do we have to create this contact
+		fullname = ' '.join([post.get('lastname'), post.get('firstname')])
+
+		domain = ['&', ('nom', '=', fullname), ('email', '=', post.get('email'))]
+		existing_contact = contact_environment.sudo().search(domain)
+
+		contact_id = 0
+
+		if not existing_contact :
+			contact = contact_environment.sudo().create({
+				'name': fullname,
+				'phone': post.get('phone'),
+				'mobile': post.get('mobile'),
+				'street': post.get('street'),
+				'zip': post.get('zip'),
+				'city': post.get('city'),
+				'email': str(post.get('email')),
+				'country_id' : int(post.get('country')),
+				'm_gender': 'man' if str(post.get('gender')) == 'man' else 'woman',
+				'm_years_old': int(post.get('yo')),
+				'm_graft': False if str(post.get('grafted')) == "no" else True,
+				'm_last_intervention': False if str(post.get('grafted')) == "no" else True,
+				'm_intervention_type': 'fue' if str(post.get('grafted')) == "fue" else "fut" if str(post.get('grafted')) == "fut" else "",
+			})
+			contact_id = int(contact.id)
+		else :
+			contact_id = int(existing_contact.id)
 
 		#determine baldness degree
 		baldness_environment = request.env['graft.baldness']
@@ -59,7 +72,7 @@ class Main(Website):
 		#then create new operation with status
 		operation_environment = request.env['graft.operation']
 		operation = operation_environment.sudo().create({
-			'm_patient': int(contact.id),
+			'm_patient': contact_id,
 			'm_message': post.get('message'),
 			'm_baldness': int(baldness_id),
 			'm_patient_origin' : origin, 
