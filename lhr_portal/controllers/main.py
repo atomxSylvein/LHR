@@ -14,6 +14,7 @@ class Main(Website):
 	def blank(self):
 		return request.render('lhr_portal.blank', {})
 
+
 	@http.route('/<lang>/formulaire-contact', auth="public", website=True, csrf=False)
 	def formulaire_devis(self, lang=None, **post):
 		#récupération des pays
@@ -21,14 +22,8 @@ class Main(Website):
 		countries = country_environment.sudo().search([])
 		language = "fr" if lang == "fr_FR" else "en" if lang == "en_EN" else "pt"
 
-		#get full paths
-		baseUrl = "base"#http.request.env['ir.config_parameter'].get_param('web.base.url')
-		path = {}
-		path['en'] = baseUrl + "/en_EN/formulaire-contact"
-		path['fr'] = baseUrl + "/fr_FR/formulaire-contact"
-		path['pt'] = baseUrl + "/pt_PT/formulaire-contact"
+		return request.render('lhr_portal.create_operation', { 'countries' : countries, 'lang':language, 'source':post.get('source'),} )
 
-		return request.render('lhr_portal.create_operation', { 'countries' : countries, 'lang':language, 'path':path, 'source':post.get('source'),} )
 
 	@http.route('/success', type='http', auth='public', website=True)
 	def create_devis(self, **post):
@@ -55,12 +50,19 @@ class Main(Website):
 		domain = ['&', ('m_gender', '=', post.get('gender')), ('m_case', '=', post.get('case'))]
 		baldness_id = baldness_environment.sudo().search(domain)
 
+		#determine origin
+		origin = ""
+		if post.get('source', False):
+			_website = str(post.get('source')).split('.')[1]
+			origin = "jalis" if _website == "lisboahair" else "arpega" if _website == "lisboa-hair" else ""
+
 		#then create new operation with status
 		operation_environment = request.env['graft.operation']
 		operation = operation_environment.sudo().create({
 			'm_patient': int(contact.id),
 			'm_message': post.get('message'),
 			'm_baldness': int(baldness_id),
+			'm_patient_origin' : origin,
 			'm_donor_neck_filename' : str(post.get('donor_neck').filename) if post.get('donor_neck',False) else None,
 			'm_donor_neck' : base64.b64encode(post.get('donor_neck').read()) if post.get('donor_neck',False) else None,
 			'm_donor_side_filename' : str(post.get('donor_side').filename) if post.get('donor_side',False) else None,
