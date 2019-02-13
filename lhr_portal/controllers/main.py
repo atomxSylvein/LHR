@@ -14,13 +14,12 @@ class Main(Website):
 	def blank(self):
 		return request.render('lhr_portal.blank', {})
 
-	#@http.route('/<lang>/formulaire-contact', type='http', auth="public", website=True)
 	@http.route('/<lang>/formulaire-contact', auth="public", website=True)
 	def formulaire_devis(self, **post):
 		#récupération des pays
 		country_environment = request.env['res.country'] 
 		countries = {}#country_environment.sudo().search([])
-		language = "fr"# if lang == "fr_fr" else "en" if lang == "en_en" else "pt"
+		language = "fr" if lang == "fr_FR" else "en" if lang == "en_EN" else "pt"
 
 		#get full paths
 		baseUrl = "base"#http.request.env['ir.config_parameter'].get_param('web.base.url')
