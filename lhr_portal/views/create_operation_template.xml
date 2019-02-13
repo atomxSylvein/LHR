@@ -127,7 +127,7 @@
 											required="True" 
 											placeholder="Address"/>
 										<input 
-											t-if="lang == 'fr'"
+											t-elif="lang == 'fr'"
 											type="text" 
 											name="street" 
 											class="space form-control o_website_form_input"
