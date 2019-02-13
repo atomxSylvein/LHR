@@ -15,7 +15,7 @@ class Main(Website):
 		return request.render('lhr_portal.blank', {})
 
 	#@http.route('/<lang>/formulaire-contact', type='http', auth="public", website=True)
-	@http.route('/formulaire-contact', auth="public", website=True)
+	@http.route('/<lang>/formulaire-contact', auth="public", website=True)
 	def formulaire_devis(self, **post):
 		#récupération des pays
 		country_environment = request.env['res.country'] 
