@@ -18,7 +18,7 @@ class Main(Website):
 	def formulaire_devis(self, lang=None, **post):
 		#récupération des pays
 		country_environment = request.env['res.country'] 
-		countries = {}#country_environment.sudo().search([])
+		countries = country_environment.sudo().search([])
 		language = "fr" if lang == "fr_FR" else "en" if lang == "en_EN" else "pt"
 
 		#get full paths
