@@ -175,4 +175,4 @@ class Operation(models.Model):
 
 				last_id = int(last_operation.id) if last_operation else 0
 				operation.m_name = "Devis " + str(last_id) + " - " + operation.m_patient_name
-				operation.m_client_nom_civil = ' '.join(['M.', operation.m_patient_name]) if operation.m_patient.m_gender == 'man' else ' '.join(['Mme.', operation.m_patient_name])
+				operation.m_patient_full_name = ' '.join(['M.', operation.m_patient_name]) if operation.m_patient.m_gender == 'man' else ' '.join(['Mme.', operation.m_patient_name])
