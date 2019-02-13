@@ -67,7 +67,7 @@ class Main(Website):
 		origin = ""
 		if post.get('source', False):
 			_website = str(post.get('source')).split('.')[1]
-			origin = "jalis" if _website == "lisboahair" else "arpega" if _website == "lisboa-hair" else ""
+			origin = "jalis" if _website == "lisboahair" else "arpega" if _website == "lisboa-hair" else "ehi" if _website == "ehi-company"
 
 		#then create new operation with status
 		operation_environment = request.env['graft.operation']
