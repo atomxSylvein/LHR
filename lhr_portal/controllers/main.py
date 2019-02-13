@@ -62,7 +62,7 @@ class Main(Website):
 			'm_patient': int(contact.id),
 			'm_message': post.get('message'),
 			'm_baldness': int(baldness_id),
-			'm_patient_origin' : origin,
+			'm_patient_origin' : origin, 
 			'm_donor_neck_filename' : str(post.get('donor_neck').filename) if post.get('donor_neck',False) else None,
 			'm_donor_neck' : base64.b64encode(post.get('donor_neck').read()) if post.get('donor_neck',False) else None,
 			'm_donor_side_filename' : str(post.get('donor_side').filename) if post.get('donor_side',False) else None,
