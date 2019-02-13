@@ -1,0 +1,13 @@
+<odoo>
+  <template id="assets_frontend" inherit_id="website.assets_frontend">
+    <xpath expr="." position="inside">
+
+      <!-- adding the reference to my css file-->
+      <link href="/lhr_portal/static/src/css/lhr_portal.css" rel="stylesheet" type="text/css"/>
+
+      <!-- adding the reference to my javascript file-->
+      <!-- script src="/atomx_portal/static/src/js/atomx_portal.js" type="text/javascript" / -->
+      
+    </xpath>
+  </template>
+</odoo>

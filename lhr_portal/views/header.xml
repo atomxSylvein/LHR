@@ -1,0 +1,45 @@
+<odoo>
+	<!-- Redefine header -->
+	<template id="lhr_header" inherit_id="website.layout" name="LHR header">
+
+		<!-- Assign an id  -->
+		<xpath expr="//div[@id='wrapwrap']/header" position="attributes">
+		<attribute name="id">lhr_header</attribute>
+		</xpath>
+
+		<!-- Replace header --> 
+		<xpath expr="//div[@id='wrapwrap']/header" position="replace">
+			<nav class="navbar navbar-expand-md" style="background-color:white;color:#212529;padding: 0;">
+	            <div class="container">
+	                <a href="/" class="navbar-brand logo">
+	                    <img src="http://www.lisboahair.com/site/images/interface/logo.jpg" style="width: auto;height: 3.5rem;max-width:none;"/>
+	                </a>
+	                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#top_menu_collapse">
+	                    <span class="navbar-toggler-icon"/>
+	                </button>
+	                <div class="collapse navbar-collapse" id="top_menu_collapse">
+	                    <ul class="nav navbar-nav ml-auto text-right" id="top_menu">
+	                        <li class="nav-item divider"/>
+	                        <!-- Afficher le menu utilisateur si l'utilisateur est connu -->
+	                        <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
+	                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+	                                <b>
+	                                    <span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
+	                                </b>
+	                            </a>
+	                            <div class="dropdown-menu js_usermenu" role="menu">
+	                                <a id="o_logout" class="dropdown-item" t-attf-href="/web/session/logout?redirect=/" role="menuitem">Déconnexion</a>
+	                            </div>
+	                        </li>
+	                        <!-- Sinon, afficher "se connecter" -->
+	                        <li class="nav-item" t-ignore="true" t-if="user_id._is_public()">
+	                            <a href="/web/login" class="nav-link">Se connecter</a>
+	                        </li>
+	                    </ul>
+	                </div>
+	            </div>
+	        </nav>
+		</xpath>
+
+	</template>
+</odoo>
