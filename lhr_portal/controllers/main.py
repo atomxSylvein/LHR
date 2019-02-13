@@ -33,7 +33,7 @@ class Main(Website):
 		#do we have to create this contact
 		fullname = ' '.join([post.get('lastname'), post.get('firstname')])
 
-		domain = ['&', ('nom', '=', fullname), ('email', '=', post.get('email'))]
+		domain = ['&', ('name', '=', fullname), ('email', '=', post.get('email'))]
 		existing_contact = contact_environment.sudo().search(domain)
 
 		contact_id = 0
