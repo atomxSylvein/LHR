@@ -427,8 +427,9 @@
 			</div>
 		</t>
 
+	</template>
 
-		<xpath expr="//div[@id='wrapwrap']/footer" position="replace">
+	<xpath expr="//div[@id='wrapwrap']/footer" position="replace">
       <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer" style="padding-top:10px;background-color:white;">
         <section class="s_text_block pb0 pt0">
           <div class="container">
@@ -449,5 +450,4 @@
       </div>
     </xpath>
     
-	</template>
 </odoo>
