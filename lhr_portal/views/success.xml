@@ -7,7 +7,6 @@
     	</t>
 
 		<t t-call="website.layout">
-
 			<div class="paper_background">
 				<div class="paper">
 
@@ -27,5 +26,51 @@
 				</div>
 			</div>
 		</t>
+
+		<div id="lhr_footer" position="replace">
+			<div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer" style="padding-top:10px;background-color:white;">
+				<section class="s_text_block pb0 pt0">
+					<div class="container">
+						<div class="row">
+
+						<div t-if="lang == 'en'" class="col-lg-4" id="connect">
+							<h5 style="color: rgb(33, 37, 41); font-size=1.09375rem; line-height:1.2;">LHR Clinic</h5>
+							<ul class="list-unstyled">
+								<li data-original-title="" title="" aria-describedby="tooltip779555">Av. Sidónio Pais, Nº. 8, 5º. Esq.</li>
+								<li data-original-title="" title="" aria-describedby="tooltip779555">1050-214 Lisbon - Portugal</li>
+								<li data-original-title="" title="" aria-describedby="tooltip779555">Subway – PARQUE (blue line)</li>
+								<li>&amp;nbsp;<i class="fa fa-phone" data-original-title="" title="" aria-describedby="tooltip206205"><br data-original-title="" title="" aria-describedby="tooltip566442"/></i>&amp;nbsp;+351 211 974 400</li>
+							</ul>
+							<p> </p>
+						</div>
+
+						<div t-elif="lang == 'fr'" class="col-lg-4" id="connect">
+							<h5 style="color: rgb(33, 37, 41); font-size=1.09375rem; line-height:1.2;">Clinique LHR</h5>
+							<ul class="list-unstyled">
+								<li data-original-title="" title="" aria-describedby="tooltip779555">5ème étage</li>
+								<li data-original-title="" title="" aria-describedby="tooltip779555">1050-214 Lisbonne</li>
+								<li data-original-title="" title="" aria-describedby="tooltip779555">Métro PARQUE (ligne bleue)</li>
+								<li>&amp;nbsp;<i class="fa fa-phone" data-original-title="" title="" aria-describedby="tooltip206205"><br data-original-title="" title="" aria-describedby="tooltip566442"/></i>&amp;nbsp;+351 211 974 400</li>
+							</ul>
+							<p> </p>
+						</div>
+
+						<div t-else="" class="col-lg-4" id="connect">
+							<h5 style="color: rgb(33, 37, 41); font-size=1.09375rem; line-height:1.2;">Clínica LHR</h5>
+							<ul class="list-unstyled">
+								<li data-original-title="" title="" aria-describedby="tooltip779555">Av. Sidónio Pais, Nº. 8, 5º. Esq.</li>
+								<li data-original-title="" title="" aria-describedby="tooltip779555">1050-214 Lisboa</li>
+								<li data-original-title="" title="" aria-describedby="tooltip779555">Metro PARQUE (linha azul)</li>
+								<li>&amp;nbsp;<i class="fa fa-phone" data-original-title="" title="" aria-describedby="tooltip206205"><br data-original-title="" title="" aria-describedby="tooltip566442"/></i>&amp;nbsp;+351 211 974 400</li>
+							</ul>
+							<p> </p>
+						</div>
+
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
 	</template>
 </odoo>
