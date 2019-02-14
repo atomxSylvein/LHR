@@ -10,40 +10,6 @@
     <!-- Replace footer -->
     <xpath expr="//div[@id='wrapwrap']/footer" position="replace">
       <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer" style="padding-top:10px;background-color:white;">
-        <section class="s_text_block pb0 pt0">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-4">
-                <h5 style="font-size=1.09375rem; line-height:1.2;">Lisbola Hair Restoration à votre service</h5>
-                <ul class="list-unstyled">
-                  <li>
-                    <a href="http://www.lisboahair.com/" data-original-title="" title="" aria-describedby="tooltip980012">Site web d'accueil</a>
-                  </li>
-                  <li>
-                    <a href="http://www.lisboahair.com/nos-traitements-cheveux-1.html" data-original-title="" title="" aria-describedby="tooltip205699">Cheveux</a>
-                  </li>
-                  <li>
-                    <a href="http://www.lisboahair.com/nos-traitements-greffes+localisees-1.html" data-original-title="" title="" aria-describedby="tooltip987464">Greffes localisées</a>
-                  </li>
-                  <li>
-                    <a href="http://www.lisboahair.com/nos-traitements-prp+et+dermopigmentation-1.html" data-original-title="" title="" aria-describedby="tooltip37785">PRP et Dermopigmentation</a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="col-lg-4" id="connect">
-                <h5 style="color: rgb(33, 37, 41); font-size=1.09375rem; line-height:1.2;">Clinique LHR</h5>
-                <ul class="list-unstyled">
-                  <li data-original-title="" title="" aria-describedby="tooltip779555">Avenida Sidonio Pais, N°8, 5°</li>
-                  <li data-original-title="" title="" aria-describedby="tooltip779555">Métro : PARQUE</li>
-                  <li data-original-title="" title="" aria-describedby="tooltip779555">1050214 Lisboa</li>
-                  <li>&amp;nbsp;<i class="fa fa-phone" data-original-title="" title="" aria-describedby="tooltip206205"><br data-original-title="" title="" aria-describedby="tooltip566442"/></i>&amp;nbsp;+351 211 974 400</li>
-                </ul>
-                <p> </p>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
     </xpath>
 
