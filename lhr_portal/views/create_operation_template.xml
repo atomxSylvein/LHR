@@ -447,7 +447,8 @@
 						<div t-elif="lang == 'fr'" class="col-lg-4" id="connect">
 							<h5 style="color: rgb(33, 37, 41); font-size=1.09375rem; line-height:1.2;">Clinique LHR</h5>
 							<ul class="list-unstyled">
-								<li data-original-title="" title="" aria-describedby="tooltip779555">5ème étage</li>
+								<li data-original-title="" title="" aria-describedby="tooltip779555">8, avenue Sidonio Pais</li>
+								<li data-original-title="" title="" aria-describedby="tooltip779555">5ème étage</li> 
 								<li data-original-title="" title="" aria-describedby="tooltip779555">1050-214 Lisbonne</li>
 								<li data-original-title="" title="" aria-describedby="tooltip779555">Métro PARQUE (ligne bleue)</li>
 								<li>&amp;nbsp;<i class="fa fa-phone" data-original-title="" title="" aria-describedby="tooltip206205"><br data-original-title="" title="" aria-describedby="tooltip566442"/></i>&amp;nbsp;+351 211 974 400</li>
@@ -471,6 +472,6 @@
 				</section>
 			</div>
 		</div>
-    
+
 	</template>
 </odoo>
