@@ -68,8 +68,6 @@ class Main(Website):
 		if post.get('source', False):
 			_website = str(post.get('source')).split('.')[1]
 			origin = "jalis" if _website == "lisboahair" else "arpega" if _website == "lisboa-hair" else "ehi" if _website == "ehi-company" else ""
-		else :
-			source = "http://www.lisboa-hair.com/"
 
 		#then create new operation with status
 		operation_environment = request.env['graft.operation']
@@ -89,4 +87,4 @@ class Main(Website):
 			'm_treat_top_filename' : str(post.get('treat_top').filename) if post.get('treat_top',False) else None,
 			'm_treat_top' : base64.b64encode(post.get('treat_top').read()) if post.get('treat_top',False) else None,
 		})
-		return request.render('lhr_portal.success', {'source':source,'lang':post.get('lang'),} )
+		return request.render('lhr_portal.success', {'source':post.get('source'),'lang':post.get('lang'),} )
