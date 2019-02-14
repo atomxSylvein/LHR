@@ -283,7 +283,7 @@
 							<h5>
 								<t t-if="lang == 'en'">Have you ever used the hair transplant ?</t>
 							  	<t t-elif="lang == 'pt'">Já fez algum tranplante capilar?</t>
-							  	<t t-else="">Avez-vous déjà eu recours à la Greffe des Cheveux ? </t>
+							  	<t t-else="">Avez-vous déjà eu recours à la greffe de cheveux ? </t>
 
 								<select name="grafted" class="form-control o_website_form_input" style="margin-top:10px;">
 									<option value="no" t-if="lang == 'en'">No</option>
