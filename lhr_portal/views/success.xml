@@ -1,10 +1,10 @@
 <odoo>
 	<template id="success">
 
-		<t t-set="head">
+		<!-- t t-set="head">
 			<meta t-if="not source" name="redirection" http-equiv="refresh" content="5; URL='http://www.lisboa-hair.com/'"/>
 			<meta t-else="" name="redirection" http-equiv="refresh" t-attf-content="5; URL={{source}}"/>
-    	</t>
+    	</t -->
 
 		<t t-call="website.layout">
 			<div class="paper_background">
