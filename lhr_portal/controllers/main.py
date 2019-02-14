@@ -28,7 +28,7 @@ class Main(Website):
 	@http.route('/success', type='http', auth='public', website=True)
 	def create_devis(self, **post):
 
-		contact_environment = request.env['res.partner']
+		"""contact_environment = request.env['res.partner']
 
 		#do we have to create this contact
 		fullname = ' '.join([post.get('lastname'), post.get('firstname')])
@@ -86,5 +86,5 @@ class Main(Website):
 			'm_treat_side' : base64.b64encode(post.get('treat_side').read()) if post.get('treat_side',False) else None,
 			'm_treat_top_filename' : str(post.get('treat_top').filename) if post.get('treat_top',False) else None,
 			'm_treat_top' : base64.b64encode(post.get('treat_top').read()) if post.get('treat_top',False) else None,
-		})
+		})"""
 		return request.render('lhr_portal.success', {'source':post.get('source'),'lang':post.get('lang'),} )
