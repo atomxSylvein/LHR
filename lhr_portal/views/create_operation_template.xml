@@ -1,16 +1,18 @@
 <odoo>
 	<template id="create_operation">
-		<!-- t t-set="head">
-			<!- - Global site tag (gtag.js) - Google Ads: 870587121 - ->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=AW-870587121"/>
-			<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
+		<t t-set="head">
+			<t t-if="lang == 'pt'">
+				<!-- Global site tag (gtag.js) - Google Ads: 870587121 -->
+				<script async="async" src="https://www.googletagmanager.com/gtag/js?id=AW-870587121"/>
+				<script>
+				  window.dataLayer = window.dataLayer || [];
+				  function gtag(){dataLayer.push(arguments);}
+				  gtag('js', new Date());
 
-			  gtag('config', 'AW-870587121');
-			</script>
-		</t -->
+				  gtag('config', 'AW-870587121');
+				</script>
+			</t>
+		</t>
 
 		<t t-call="website.layout">
 
