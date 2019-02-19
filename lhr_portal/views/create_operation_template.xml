@@ -1,5 +1,17 @@
 <odoo>
 	<template id="create_operation">
+		<t t-set="head">
+			<!-- Global site tag (gtag.js) - Google Ads: 870587121 -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=AW-870587121"></script>
+			<script>
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+
+			  gtag('config', 'AW-870587121');
+			</script>
+		</t>
+		
 		<t t-call="website.layout">
 
 			<div class="paper_background">
@@ -418,7 +430,25 @@
 						<div class="form-group" align="right">
 							<button class="btn btn-block btn-primary o_website_form_send" style="max-width: 20%;">
 								<t t-if="lang == 'en'">Send</t>
-							  	<t t-elif="lang == 'pt'">Enviar</t>
+							  	<t t-elif="lang == 'pt'">
+							  		<!-- Event snippet for Form_Portugal conversion page
+									In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+									<script>
+									function gtag_report_conversion(url) {
+									  var callback = function () {
+									    if (typeof(url) != 'undefined') {
+									      window.location = url;
+									    }
+									  };
+									  gtag('event', 'conversion', {
+									      'send_to': 'AW-870587121/51lICK-vtJUBEPG1kJ8D',
+									      'event_callback': callback
+									  });
+									  return false;
+									}
+									</script>
+							  		Enviar
+							  	</t>
 							  	<t t-else="">Envoyer</t>
 							</button>
 						</div>
