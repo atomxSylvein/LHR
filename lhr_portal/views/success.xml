@@ -2,6 +2,26 @@
 	<template id="success">
 
 		<t t-set="head">
+
+			<t t-if="lang == 'pt'">
+				<!-- Event snippet for Form_Portugal conversion page
+				In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+				<script>
+				function gtag_report_conversion(url) {
+				  var callback = function () {
+				    if (typeof(url) != 'undefined') {
+				      window.location = url;
+				    }
+				  };
+				  gtag('event', 'conversion', {
+				      'send_to': 'AW-870587121/51lICK-vtJUBEPG1kJ8D',
+				      'event_callback': callback
+				  });
+				  return false;
+				}
+				</script>
+			</t>
+
 			<meta t-if="not source" name="redirection" http-equiv="refresh" content="5; URL='http://www.lisboa-hair.com/'"/>
 			<meta t-else="" name="redirection" http-equiv="refresh" t-attf-content="5; URL={{source}}"/>
     	</t>
