@@ -158,9 +158,9 @@ class Operation(models.Model):
 		record = super(Operation, self).create(values)
 
 		#mail sending to the caller
-		template_env = self.env['mail.template']
+		"""template_env = self.env['mail.template']
 		mail_template = template_env.search([('model_id.model', '=', 'graft.operation')])[0]
-		mail_template.send_mail(record.id)
+		mail_template.send_mail(record.id)"""
 		
 		return record
 
