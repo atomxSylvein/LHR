@@ -138,7 +138,7 @@ class Operation(models.Model):
 		    order (TYPE): Not used
 		
 		Returns:
-		    Array[graft.stage]: Description
+		    Array[]: Over the possible stages
 		"""
 		return (["asking", "fileOk", "sending", "validated", "consultation", "postop", "other", "closed"])
 
@@ -148,19 +148,20 @@ class Operation(models.Model):
 		"""Overrides the create default method in order to allow a mail sending when a new ticket is recorded
 		
 		Args:
-		    values (tab): Fields of TicketManagement class (at least the required fields) 
+		    values (tab): Fields of Operation class (at least the required fields) 
 		
 		Returns:
-		    TicketManagement: Class
+		    Operation: Class
 		"""
 
 		# Override the original create function for the this model
 		record = super(Operation, self).create(values)
 
 		#mail sending to the caller
-		"""template_env = self.env['mail.template']
-		mail_template = template_env.search([('model_id.model', '=', 'graft.operation')])[0]
-		mail_template.send_mail(record.id)"""
+		template_env = self.env['mail.template']
+		domain = ['&', ('model_id.model', '=', 'graft.operation'), ('{en}', 'in', 'name')]
+		mail_template = template_env.search(domain)
+		mail_template.send_mail(record.id)
 		
 		return record
 
