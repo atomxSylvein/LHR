@@ -56,7 +56,7 @@
                                 <field name="m_patient"/>
                                 <field name="m_patient_gender"/>
                                 <field name="m_patient_yo"/>
-                                <field name="m_patient_language"/>
+                                <field name="m_patient_language" required="1"/>
                                 <field name="m_patient_mail"/>
                                 <field name="m_patient_mobile"/>
                             </group>
