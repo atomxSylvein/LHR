@@ -159,7 +159,7 @@ class Operation(models.Model):
 
 		#mail sending to the caller
 		template_env = self.env['mail.template']
-		domain = ['&', ('model_id.model', '=', 'graft.operation'), ('\\{en\\}', 'in', 'name')]
+		domain = ['&', ('model_id.model', '=', 'graft.operation'), ('\{en\}', 'in', 'name')]
 		mail_template = template_env.search(domain)
 		mail_template.send_mail(record.id)
 		
