@@ -39,7 +39,7 @@ class Operation(models.Model):
 	m_message = fields.Text(string="Message du formulaire")
 	m_baldness = fields.Many2one('graft.baldness', string="Cas")
 	m_baldness_image = fields.Binary(compute="_compute_image", store=True, string="Niveau de calvitie estimé par le patient")
-	#m_language = fields.Selection([('en', 'Anglais'), ('fr', 'Français'), ('pt', 'Portugais')], string="Langue")
+	m_language = fields.Selection([('en', 'Anglais'), ('fr', 'Français'), ('pt', 'Portugais')], string="Langue")
 
 	#medecin et relatives
 	m_first_doctor = fields.Many2one('hr.employee', string="Médecin 1")
@@ -158,7 +158,7 @@ class Operation(models.Model):
 		record = super(Operation, self).create(values)
 
 		#mail sending to the caller
-		"""template_env = self.env['mail.template']
+		template_env = self.env['mail.template']
 		domain = []
 		if record.m_language == 'en':
 			domain = ['&', ('model_id.model', '=', 'graft.operation'), ('name', 'like', '{en}')]
@@ -168,7 +168,7 @@ class Operation(models.Model):
 			domain = ['&', ('model_id.model', '=', 'graft.operation'), ('name', 'like', '{pt}')]
 
 		mail_template = template_env.search(domain)
-		mail_template.send_mail(record.id)"""
+		mail_template.send_mail(record.id)
 		
 		return record
 
