@@ -11,7 +11,7 @@
 				<div class="o_address_format" position="after">
 					<field name="m_gender" attrs="{'invisible': [('is_company','=', True)]}"/>
 					<field name="m_years_old" attrs="{'invisible': [('is_company','=', True)]}"/>
-					<!-- field name="m_language" attrs="{'invisible': [('is_company','=', True)]}"/ -->
+					<field name="m_language" attrs="{'invisible': [('is_company','=', True)]}"/>
 					<field name="m_graft" attrs="{'invisible': [('is_company','=', True)]}"/>
 				</div>
 

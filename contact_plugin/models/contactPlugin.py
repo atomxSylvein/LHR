@@ -23,4 +23,4 @@ class ContactPlugin(models.Model):
 	m_intervention_type = fields.Selection([("fue","FUE"), ("fut","FUT")], string="Type d'intervention", translate=True)
 	m_graft_number = fields.Integer(string="Nombre de greffons", translate=True)
 	m_intervention_date = fields.Char(string="Date de l'intervention")
-	#m_language = fields.Selection([('en', 'Anglais'), ('fr', 'Français'), ('pt', 'Portugais')], string="Langue", translate=True)
+	m_language = fields.Selection([('en', 'Anglais'), ('fr', 'Français'), ('pt', 'Portugais')], string="Langue", translate=True)
