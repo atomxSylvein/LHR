@@ -158,7 +158,7 @@ class Operation(models.Model):
 		record = super(Operation, self).create(values)
 
 		#mail sending to the caller
-		template_env = self.env['mail.template']
+		"""template_env = self.env['mail.template']
 		domain = []
 		if record.m_language == 'en':
 			domain = ['&', ('model_id.model', '=', 'graft.operation'), ('name', 'like', '{en}')]
@@ -168,7 +168,7 @@ class Operation(models.Model):
 			domain = ['&', ('model_id.model', '=', 'graft.operation'), ('name', 'like', '{pt}')]
 
 		mail_template = template_env.search(domain)
-		mail_template.send_mail(record.id)
+		mail_template.send_mail(record.id)"""
 		
 		return record
 
