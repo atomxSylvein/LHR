@@ -22,7 +22,6 @@
         'views/footer.xml',
         'views/create_operation_template.xml',
         'views/header.xml',
-        'views/tab_name.xml',
         'views/blank.xml',
         'views/success.xml',
     ],
