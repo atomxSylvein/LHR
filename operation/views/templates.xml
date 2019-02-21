@@ -35,7 +35,6 @@
                                 <span class="oe_inline"> à </span>
                                 <field name="m_operation_date_2" class="oe_inline"/>
                               </div>
-                              <field name="m_language"/>
                               <field name="m_first_doctor"/>
                               <field name="m_first_doctor_time"/>
                               <field name="m_second_doctor"/>
