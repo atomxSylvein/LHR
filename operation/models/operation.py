@@ -160,9 +160,10 @@ class Operation(models.Model):
 		#mail sending to the caller
 		template_env = self.env['mail.template']
 		domain = []
+		
 		if record.m_language == 'en':
 			domain = ['&', ('model_id.model', '=', 'graft.operation'), ('name', 'like', '{en}')]
-		else if record.m_language == 'fr':
+		elif record.m_language == 'fr':
 			domain = ['&', ('model_id.model', '=', 'graft.operation'), ('name', 'like', '{fr}')]
 		else:
 			domain = ['&', ('model_id.model', '=', 'graft.operation'), ('name', 'like', '{pt}')]
