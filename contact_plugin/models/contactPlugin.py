@@ -10,6 +10,7 @@ class ContactPlugin(models.Model):
 	    m_graft_number (int): Number of grafts
 	    m_intervention_date (date): Date of previous operations
 	    m_intervention_type (selection): FUE or FUT
+	    m_language (selection): Patient language
 	    m_last_intervention (bool): Has the patien already performed a graft operation
 	    m_years_old (int): Patient's age
 	"""
@@ -22,3 +23,4 @@ class ContactPlugin(models.Model):
 	m_intervention_type = fields.Selection([("fue","FUE"), ("fut","FUT")], string="Type d'intervention", translate=True)
 	m_graft_number = fields.Integer(string="Nombre de greffons", translate=True)
 	m_intervention_date = fields.Char(string="Date de l'intervention")
+	m_language = fields.Selection([('en', 'Anglais'), ('fr', 'Français'), ('pt', 'Portugais')], string="Langue", translate=True)
