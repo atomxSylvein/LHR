@@ -115,6 +115,7 @@
 											required="True" 
 											placeholder="First name *"
 											oninvalid="this.setCustomValidity('Please fill in this field')"
+											oninput="this.setCustomValidity('')"
 											title="Please fill in this field"/>
 									  	<input 
 									  		t-elif="lang == 'fr'"
@@ -124,6 +125,7 @@
 											required="True" 
 											placeholder="Nom *"
 											oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"
+											oninput="this.setCustomValidity('')"
 											title="Veuillez renseigner ce champ"/>
 								  		<input 
 								  			t-else=""
@@ -133,6 +135,7 @@
 											required="True" 
 											placeholder="Nome *"
 											oninvalid="this.setCustomValidity('Por favor preencha este campo')"
+											oninput="this.setCustomValidity('')"
 											title="Por favor preencha este campo"/>
 									</td>
 									<td>
@@ -144,6 +147,7 @@
 											required="True" 
 											placeholder="Last name *"
 											oninvalid="this.setCustomValidity('Please fill in this field')"
+											oninput="this.setCustomValidity('')"
 											title="Please fill in this field"/>
 										<input 
 											t-elif="lang == 'fr'"
@@ -153,6 +157,7 @@
 											required="True" 
 											placeholder="Prénom *"
 											oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"
+											oninput="this.setCustomValidity('')"
 											title="Veuillez renseigner ce champ"/>
 										<input 
 											t-else=""
@@ -162,6 +167,7 @@
 											required="True" 
 											placeholder="Apelido *"
 											oninvalid="this.setCustomValidity('Por favor preencha este campo')"
+											oninput="this.setCustomValidity('')"
 											title="Por favor preencha este campo"/>
 									</td>
 								</tr>
@@ -175,6 +181,7 @@
 											required="True" 
 											placeholder="Address *"
 											oninvalid="this.setCustomValidity('Please fill in this field')"
+											oninput="this.setCustomValidity('')"
 											title="Please fill in this field"/>
 										<input 
 											t-elif="lang == 'fr'"
@@ -184,6 +191,7 @@
 											required="True" 
 											placeholder="Adresse *"
 											oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"
+											oninput="this.setCustomValidity('')"
 											title="Veuillez renseigner ce champ"/>
 										<input 
 											t-else=""
@@ -193,6 +201,7 @@
 											required="True" 
 											placeholder="Morada *"
 											oninvalid="this.setCustomValidity('Por favor preencha este campo')"
+											oninput="this.setCustomValidity('')"
 											title="Por favor preencha este campo"/>
 									</td>
 								</tr>
@@ -206,6 +215,7 @@
 											required="True" 
 											placeholder="Zip code *"
 											oninvalid="this.setCustomValidity('Please fill in this field')"
+											oninput="this.setCustomValidity('')"
 											title="Please fill in this field"/>
 										<input 
 											t-elif="lang == 'fr'"
@@ -215,6 +225,7 @@
 											required="True" 
 											placeholder="Code postal *"
 											oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"
+											oninput="this.setCustomValidity('')"
 											title="Veuillez renseigner ce champ"/>
 										<input 
 											t-else=""
@@ -224,6 +235,7 @@
 											required="True" 
 											placeholder="Código postal *"
 											oninvalid="this.setCustomValidity('Por favor preencha este campo')"
+											oninput="this.setCustomValidity('')"
 											title="Por favor preencha este campo"/>
 									</td>
 									<td>
@@ -235,6 +247,7 @@
 											required="True" 
 											placeholder="City *"
 											oninvalid="this.setCustomValidity('Please fill in this field')"
+											oninput="this.setCustomValidity('')"
 											title="Please fill in this field"/>
 										<input 
 											t-elif="lang == 'fr'"
@@ -244,6 +257,7 @@
 											required="True" 
 											placeholder="Ville *"
 											oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"
+											oninput="this.setCustomValidity('')"
 											title="Veuillez renseigner ce champ"/>
 										<input 
 											t-else=""
@@ -253,6 +267,7 @@
 											required="True" 
 											placeholder="Cidade *"
 											oninvalid="this.setCustomValidity('Por favor preencha este campo')"
+											oninput="this.setCustomValidity('')"
 											title="Por favor preencha este campo"/>
 									</td>
 								</tr>
@@ -275,6 +290,7 @@
 											required="True" 
 											placeholder="Age *"
 											oninvalid="this.setCustomValidity('Please fill in this field')"
+											oninput="this.setCustomValidity('')"
 											title="Please fill in this field"/>
 										<input 
 											t-elif="lang == 'fr'"
@@ -284,6 +300,7 @@
 											required="True" 
 											placeholder="Âge *"
 											oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"
+											oninput="this.setCustomValidity('')"
 											title="Veuillez renseigner ce champ"/>
 										<input 
 											t-else=""
@@ -293,6 +310,7 @@
 											required="True" 
 											placeholder="Idade *"
 											oninvalid="this.setCustomValidity('Por favor preencha este campo')"
+											oninput="this.setCustomValidity('')"
 											title="Por favor preencha este campo"/>
 									</td>
 								</tr>
@@ -306,6 +324,7 @@
 											required="True" 
 											placeholder="E-mail *"
 											oninvalid="this.setCustomValidity('Please fill in this field')"
+											oninput="this.setCustomValidity('')"
 											title="Please fill in this field"/>
 										<input 
 											t-elif="lang == 'fr'"
@@ -315,6 +334,7 @@
 											required="True" 
 											placeholder="E-mail *"
 											oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"
+											oninput="this.setCustomValidity('')"
 											title="Veuillez renseigner ce champ"/>
 										<input 
 											t-else=""
@@ -324,6 +344,7 @@
 											required="True" 
 											placeholder="E-mail *"
 											oninvalid="this.setCustomValidity('Por favor preencha este campo')"
+											oninput="this.setCustomValidity('')"
 											title="Por favor preencha este campo"/>
 									</td>
 								</tr>
@@ -408,6 +429,7 @@
 								required="True"
 								placeholder="Please describe your hair situation (We also treat beard or eyebrow grafts) *"
 								oninvalid="this.setCustomValidity('Please fill in this field')"
+								oninput="this.setCustomValidity('')"
 								title="Please fill in this field"></textarea> 
 							<textarea
 								t-elif="lang == 'fr'"
@@ -420,6 +442,7 @@
 								required="True"
 								placeholder="Décrivez-nous votre situation capillaire (Nous traitons aussi les greffes de barbe ou de sourcils) *"
 								oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"
+								oninput="this.setCustomValidity('')"
 								title="Veuillez renseigner ce champ"></textarea> 
 							<textarea
 								t-else=""
@@ -432,6 +455,7 @@
 								required="True"
 								placeholder="Descreva-nos a sua situação capilar (também fazemos transplante de barba e de sobrancelha) *"
 								oninvalid="this.setCustomValidity('Por favor preencha este campo')"
+								oninput="this.setCustomValidity('')"
 								title="Por favor preencha este campo"></textarea> 
 						</div>
 
