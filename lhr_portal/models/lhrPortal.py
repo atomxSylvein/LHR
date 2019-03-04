@@ -6,4 +6,5 @@ class LHRPortal(models.Model):
 	"""
 	
 	_name = 'lhr_portal.lhr_portal'
+	champ_inutil = fields.Char(string="champ inutile")
 
