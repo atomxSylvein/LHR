@@ -4,7 +4,7 @@
 		<xpath expr="//title" position="replace">
         	<title>
         		<t t-if="lang == 'en'">Quote request</t>
-        		<t t-if="lang == 'fr'">Demande de devis</t>
+        		<t t-elif="lang == 'fr'">Demande de devis</t>
         		<t t-else="">Orçamento personalizado</t>
         	</title>
       	</xpath>
