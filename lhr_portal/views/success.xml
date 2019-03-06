@@ -3,7 +3,7 @@
 
 		<t t-set="head">
 
-			<script async="async" src="https://www.googletagmanager.com/gtag/js?id=AW-870587121"/>
+			<script async="async" src="https://www.googletagmanager.com/gtag/js?id=AW-870587121"/> 
 				<script type="text/javascript">
 				  window.dataLayer = window.dataLayer || [];
 				  function gtag(){dataLayer.push(arguments);}
