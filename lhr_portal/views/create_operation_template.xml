@@ -1,5 +1,5 @@
 <odoo>
-	<template id="create_operation" inherit_id="website.layout">
+	<template id="create_operation" inherit_id="website.layout" t-att-name="title">
 
 		<!--xpath expr="//title" position="replace">
         	<title>
@@ -10,7 +10,7 @@
       	</xpath -->
 
 		<!-- t t-call="website.layout" -->
-		<xpath expr="//div[@class='main']" position="inside">
+		<!-- xpath expr="//div[@class='main']" position="inside">
 			<div class="paper_background">
 				<div class="paper">
 
@@ -519,9 +519,9 @@
 					</form>
 				</div>
 			</div>
-		</xpath>
+		</xpath -->
 
-		<div id="lhr_footer" position="replace">
+		<!-- div id="lhr_footer" position="replace">
 			<div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer" style="padding-top:10px;background-color:white;">
 				<section class="s_text_block pb0 pt0">
 					<div class="container">
@@ -565,7 +565,7 @@
 					</div>
 				</section>
 			</div>
-		</div>
+		</div -->
 
 	</template>
 </odoo>
