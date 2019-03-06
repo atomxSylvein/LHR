@@ -39,7 +39,7 @@ class Operation(models.Model):
 	m_message = fields.Text(string="Message du formulaire")
 	m_baldness = fields.Many2one('graft.baldness', string="Cas")
 	m_baldness_image = fields.Binary(compute="_compute_image", store=True, string="Niveau de calvitie estimé par le patient")
-
+	
 
 	#medecin et relatives
 	m_first_doctor = fields.Many2one('hr.employee', string="Médecin 1")
@@ -111,6 +111,7 @@ class Operation(models.Model):
 	m_patient_yo = fields.Integer(related='m_patient.m_years_old', string="Âge", store=False, readonly=True)
 	m_patient_gender = fields.Selection(related='m_patient.m_gender', string="Sexe", store=False, readonly=True)
 	m_patient_mobile = fields.Char(related='m_patient.mobile', string="Mobile", store=False, readonly=True)
+	m_patient_language = fields.Selection(related="m_patient.m_language", string="Langue du patient", store=False, readonly=True)
 
 	#hébergement
 	m_hotel = fields.Boolean(string="Hébergement compris dans le devis")
@@ -138,7 +139,7 @@ class Operation(models.Model):
 		    order (TYPE): Not used
 		
 		Returns:
-		    Array[graft.stage]: Description
+		    Array[]: Over the possible stages
 		"""
 		return (["asking", "fileOk", "sending", "validated", "consultation", "postop", "other", "closed"])
 
@@ -148,19 +149,29 @@ class Operation(models.Model):
 		"""Overrides the create default method in order to allow a mail sending when a new ticket is recorded
 		
 		Args:
-		    values (tab): Fields of TicketManagement class (at least the required fields) 
+		    values (tab): Fields of Operation class (at least the required fields) 
 		
 		Returns:
-		    TicketManagement: Class
+		    Operation: Class
 		"""
 
 		# Override the original create function for the this model
 		record = super(Operation, self).create(values)
 
 		#mail sending to the caller
-		"""template_env = self.env['mail.template']
-		mail_template = template_env.search([('model_id.model', '=', 'graft.operation')])[0]
-		mail_template.send_mail(record.id)"""
+		template_env = self.env['mail.template']
+		domain = []
+		
+		if record.m_patient_language == 'en':
+			domain = ['&', ('model_id.model', '=', 'graft.operation'), ('name', 'like', '{en}')]
+		elif record.m_patient_language == 'fr':
+			domain = ['&', ('model_id.model', '=', 'graft.operation'), ('name', 'like', '{fr}')]
+		else:
+			domain = ['&', ('model_id.model', '=', 'graft.operation'), ('name', 'like', '{pt}')]
+
+		if len(template_env.search(domain)) > 0:
+			mail_template = template_env.search(domain)[0]
+			mail_template.send_mail(record.id)
 		
 		return record
 
