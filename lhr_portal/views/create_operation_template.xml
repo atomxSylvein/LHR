@@ -1,13 +1,13 @@
 <odoo>
 	<template id="create_operation" inherit_id="website.layout">
 
-		<xpath expr="//title" position="replace">
+		<!--xpath expr="//title" position="replace">
         	<title>
         		<t t-if="lang == 'en'">Quote request</t>
         		<t t-elif="lang == 'fr'">Demande de devis</t>
         		<t t-else="">Orçamento personalizado</t>
         	</title>
-      	</xpath>
+      	</xpath -->
 
 		<!-- t t-call="website.layout" -->
 		<xpath expr="//div[@class='main']" position="inside">
