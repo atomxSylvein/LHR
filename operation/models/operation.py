@@ -169,8 +169,9 @@ class Operation(models.Model):
 		else:
 			domain = ['&', ('model_id.model', '=', 'graft.operation'), ('name', 'like', '{pt}')]
 
-		mail_template = template_env.search(domain)[0]
-		mail_template.send_mail(record.id)
+		if len(template_env.search(domain)) > 0:
+			mail_template = template_env.search(domain)[0]
+			mail_template.send_mail(record.id)
 		
 		return record
 

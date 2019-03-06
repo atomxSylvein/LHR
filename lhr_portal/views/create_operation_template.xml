@@ -8,33 +8,6 @@
         		<t t-else="">Orçamento personalizado</t>
         	</title>
       	</xpath>
-		<t t-set="head">
-			<t t-if="lang == 'pt'">
-				<!-- Global site tag (gtag.js) - Google Ads: 870587121 -->
-				<script async="async" src="https://www.googletagmanager.com/gtag/js?id=AW-870587121"/>
-				<script>
-				  window.dataLayer = window.dataLayer || [];
-				  function gtag(){dataLayer.push(arguments);}
-				  
-				  function gtag_report_conversion(url) {
-					  var callback = function () {
-					    if (typeof(url) != 'undefined') {
-					      window.location = url;
-					    }
-					  };
-					  gtag('event', 'conversion', {
-					      'send_to': 'AW-870587121/51lICK-vtJUBEPG1kJ8D',
-					      'event_callback': callback
-					  });
-					  return false;
-					}
-					
-				  gtag('js', new Date());
-
-				  gtag('config', 'AW-870587121');				  
-				</script>
-			</t>
-		</t>
 
 		<t t-call="website.layout">
 
@@ -540,8 +513,8 @@
 
 						<div class="form-group" align="right">
 							<button t-if="lang == 'en'" class="btn btn-block btn-primary o_website_form_send" style="max-width: 20%;">Send</button>
-							<button t-elif="lang == 'pt'" class="btn btn-block btn-primary o_website_form_send" onclick="gtag_report_conversion()" style="max-width: 20%;">Enviar</button>
-							<button t-else="" class="btn btn-block btn-primary o_website_form_send" onclick="gtag('event', 'conversion', {'send_to': 'AW-870587121/j2wICPjLsYgBEPG1kJ8D'})" style="max-width: 20%;">Envoyer</button>
+							<button t-elif="lang == 'pt'" class="btn btn-block btn-primary o_website_form_send" style="max-width: 20%;">Enviar</button>
+							<button t-else="" class="btn btn-block btn-primary o_website_form_send" style="max-width: 20%;">Envoyer</button>
 						</div>
 					</form>
 				</div>
