@@ -1,5 +1,5 @@
 <odoo>
-	<template id="create_operation" inherit_id="website.layout" t-att-name="title">
+	<template id="create_operation" inherit_id="website.layout" name="title">
 
 		<!--xpath expr="//title" position="replace">
         	<title>
