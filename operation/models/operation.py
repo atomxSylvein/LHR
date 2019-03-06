@@ -106,7 +106,7 @@ class Operation(models.Model):
 
 	#partie patient
 	m_patient = fields.Many2one('res.partner', string="Patient", required=True)
-	m_patient_name = fields.Char(related='m_patient.name', store=False, readonly=True)
+	m_patient_name = fields.Char(related='m_patient.name', readonly=True)
 	m_patient_mail = fields.Char(related='m_patient.email', string="Email", store=False, readonly=True)
 	m_patient_yo = fields.Integer(related='m_patient.m_years_old', string="Âge", store=False, readonly=True)
 	m_patient_gender = fields.Selection(related='m_patient.m_gender', string="Sexe", store=False, readonly=True)
