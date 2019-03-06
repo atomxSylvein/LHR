@@ -13,6 +13,10 @@
 		<!-- 
 		<xpath expr="//div[@class='main']" position="inside">
 		-->
+		<xpath expr="//div[@id='wrapwrap']/header" position="attributes">
+    <attribute name="id"><t t-esc="title"/></attribute>
+  </xpath>
+
 		<xpath expr="//div[@id='wrapwrap']/header/div" position="after">
 			<div class="paper_background">
 				<div class="paper">
