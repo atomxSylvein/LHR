@@ -10,13 +10,6 @@
       	</xpath>
 
 		<t t-call="website.layout">
-		<!-- 
-		<xpath expr="//div[@class='main']" position="inside">
-		-->
-		<!-- xpath expr="//div[@id='wrapwrap']/header" position="attributes">
-    <attribute name="id"><t t-esc="title"/></attribute>
-  </xpath -->
-
 			<div class="paper_background">
 				<div class="paper">
 
