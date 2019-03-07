@@ -1,6 +1,6 @@
 <odoo>
 	<template id="blank">
-		<!-- t t-call="website.layout">
+		<t t-call="website.layout">
 			<form action="/fr_FR/formulaire-contact" method="post" enctype="multipart/form-data">
 
 				
@@ -8,6 +8,6 @@
 
 				<button class="btn btn-block btn-primary o_website_form_send" style="max-width: 20%;">Envoyer</button>
 			</form>
-		</t -->
+		</t>
 	</template>
 </odoo>
