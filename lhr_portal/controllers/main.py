@@ -21,8 +21,8 @@ class Main(Website):
 		country_environment = request.env['res.country'] 
 		countries = country_environment.sudo().search([])
 		language = "fr" if lang == "fr_FR" else "en" if lang == "en_EN" else "pt"
-
-		return request.render('lhr_portal.create_operation', { 'countries' : countries, 'lang':language, 'source':post.get('source'),} )
+		title = "Demande de devis" if language == "fr" else "Quote request" if language == "en" else "Orçamento personalizado"
+		return request.render('lhr_portal.create_operation', { 'countries' : countries, 'lang':language, 'source':post.get('source'), 'title':title,} )
 
 
 	@http.route('/success', type='http', auth='public', website=True)
