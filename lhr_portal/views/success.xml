@@ -44,7 +44,7 @@
 			<meta t-else="" name="redirection" http-equiv="refresh" t-attf-content="5; URL={{source}}"/>
     	</t>
 
-		<!-- t t-call="website.layout">
+		<t t-call="website.layout">
 			<div class="paper_background">
 				<div class="paper">
 
@@ -65,7 +65,7 @@
 					</h1>
 				</div>
 			</div>
-		</t -->
+		</t>
 
 	</template>
 </odoo>
