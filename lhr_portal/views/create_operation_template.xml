@@ -17,7 +17,6 @@
     <attribute name="id"><t t-esc="title"/></attribute>
   </xpath -->
 
-		<!-- xpath expr="//div[@id='wrapwrap']/header/div" position="after">
 			<div class="paper_background">
 				<div class="paper">
 
@@ -525,10 +524,10 @@
 						</div>
 					</form>
 				</div>
-			</div -->
+			</div>
 		</t>
 
-		<!-- div id="lhr_footer" position="replace">
+		<div id="lhr_footer" position="replace">
 			<div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer" style="padding-top:10px;background-color:white;">
 				<section class="s_text_block pb0 pt0">
 					<div class="container">
@@ -572,7 +571,7 @@
 					</div>
 				</section>
 			</div>
-		</div -->
+		</div>
 
 	</template>
 </odoo>
