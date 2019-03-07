@@ -1,7 +1,7 @@
 <odoo>
-	<template id="create_operation" inherit_id="website.layout" name="title">
+	<template id="create_operation" name="title">
 
-		<!--xpath expr="//title" position="replace">
+		<!-- xpath expr="//title" position="replace">
         	<title>
         		<t t-if="lang == 'en'">Quote request</t>
         		<t t-elif="lang == 'fr'">Demande de devis</t>
@@ -9,13 +9,13 @@
         	</title>
       	</xpath -->
 
-		<!-- t t-call="website.layout" -->
-		<!-- 
+		<!-- t t-call="website.layout">
+		<!- - 
 		<xpath expr="//div[@class='main']" position="inside">
 		-->
-		<xpath expr="//div[@id='wrapwrap']/header" position="attributes">
+		<!-- xpath expr="//div[@id='wrapwrap']/header" position="attributes">
     <attribute name="id"><t t-esc="title"/></attribute>
-  </xpath>
+  </xpath -->
 
 		<!-- xpath expr="//div[@id='wrapwrap']/header/div" position="after">
 			<div class="paper_background">
