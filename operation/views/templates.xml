@@ -11,8 +11,6 @@
             <field name="arch" type="xml">
                 <form>  
                     <header>
-                    
-                        
                         <field name="m_stage_selection" options="{'clickable': '0'}" widget="statusbar" default_value="asking"/>
                     </header>
                     <sheet string="Operation">
@@ -29,6 +27,7 @@
                           
                           <group name="mainleftgroup">
                               <field name="id"/>
+                              <field name="create_date" string="Créé le" readonly="1"/>
                               <label for="m_operation_time1" string="Date prévue de l'opération"/>
                               <div class="o_row o_row_readonly">
                                 <field name="m_operation_date_1" class="oe_inline"/>
@@ -161,6 +160,7 @@
                     <field name="m_second_doctor_time"/>
                     <field name="m_stage_selection"/>
                     <field name="m_graft_number"/>
+                    <field name="create_date" string="Créé le"/>
                 </tree>
             </field>
         </record>
