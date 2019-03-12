@@ -1,0 +1,17 @@
+<odoo>
+	<data>
+		<!-- FORM VIEW -->
+		<record id="view_contact_tree_inherited" model="ir.ui.view">
+			<field name="name">Contact Tree Extension</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_tree"/>
+			<field name="arch" type="xml">
+
+				<field name="active" position="after">
+					<field name="create_date"/>
+				</field>
+
+			</field>
+		</record>
+	</data>
+</odoo>
