@@ -100,7 +100,7 @@
                             <field name="m_treat_side_filename" invisible="1"/>
                             <field name="m_treat_side" string="Zone à traiter (profil)" filename="m_treat_side_filename"/>
                             <field name="m_treat_top_filename" invisible="1"/>
-                            <field name="m_treat_top" string="Zone donneuse (dessus)" filename="m_treat_top_filename"/>
+                            <field name="m_treat_top" string="Zone à traiter (dessus)" filename="m_treat_top_filename"/>
                           </group>
                           
                         </group>
