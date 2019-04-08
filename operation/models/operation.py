@@ -32,7 +32,7 @@ class Operation(models.Model):
 	_name = 'graft.operation'
 	_rec_name = 'm_name'
 	_inherit = ['mail.thread']
-	_description = 'Main model to manage patient quote requests'
+	#_description = 'Main model to manage patient quote requests'
 
 	m_name = fields.Char(compute='_compute_name', string="Nom de l'opération", store=True)
 	m_patient_full_name = fields.Char(string="Nom avec la civilité 'M.' ou 'Mme.'")
@@ -47,8 +47,8 @@ class Operation(models.Model):
 	m_first_doctor_time = fields.Selection([("half", "Demi-journée"), ("full", "Journée")], string="Temps opération médecin 1")
 	m_second_doctor = fields.Many2one('hr.employee', string="Médecin 2")
 	m_second_doctor_time = fields.Selection([("half", "Demi-journée"), ("full", "Journée")], string="Temps opération médecin 2")
-	m_first_doctor_name = fields.Char(related='m_first_doctor.name', string="Nom médecin 1", store=False, readonly=True)
-	m_second_doctor_name = fields.Char(related='m_second_doctor.name', string="Nom médecin 2", store=False, readonly=True)
+	m_first_doctor_name = fields.Char(related='m_first_doctor.name', store=False, readonly=True)
+	m_second_doctor_name = fields.Char(related='m_second_doctor.name', store=False, readonly=True)
 
 	#dates
 	m_operation_date_1 = fields.Datetime(string="Date prévue de l'opération")
