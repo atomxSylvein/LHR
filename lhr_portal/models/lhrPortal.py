@@ -6,4 +6,4 @@ class LHRPortal(models.Model):
 	"""
 	
 	_name = 'lhr_portal.lhr_portal'
-	_description = 'This class is necessary for the module interpretation of Odoo'
+	#_description = 'This class is necessary for the module interpretation of Odoo'
