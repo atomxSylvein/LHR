@@ -6,6 +6,7 @@ class BaldnessDegree(models.Model):
 
 	_name = 'graft.baldness'
 	_rec_name = 'm_case'
+	_description = 'Patient\'s baldness degree, 4 cases for men and women'
 
 	m_gender = fields.Selection([("man", "Homme"), ("woman", "Femme")], string="Sexe", default="man")
 	m_image = fields.Binary(string="Image")

@@ -32,6 +32,7 @@ class Operation(models.Model):
 	_name = 'graft.operation'
 	_rec_name = 'm_name'
 	_inherit = ['mail.thread']
+	_description = 'Main model to manage patient quote requests'
 
 	m_name = fields.Char(compute='_compute_name', string="Nom de l'opération", store=True)
 	m_patient_full_name = fields.Char(string="Nom avec la civilité 'M.' ou 'Mme.'")
@@ -46,8 +47,8 @@ class Operation(models.Model):
 	m_first_doctor_time = fields.Selection([("half", "Demi-journée"), ("full", "Journée")], string="Temps opération médecin 1")
 	m_second_doctor = fields.Many2one('hr.employee', string="Médecin 2")
 	m_second_doctor_time = fields.Selection([("half", "Demi-journée"), ("full", "Journée")], string="Temps opération médecin 2")
-	m_first_doctor_name = fields.Char(related='m_first_doctor.name', store=False, readonly=True)
-	m_second_doctor_name = fields.Char(related='m_second_doctor.name', store=False, readonly=True)
+	m_first_doctor_name = fields.Char(related='m_first_doctor.name', string="Nom médecin 1", store=False, readonly=True)
+	m_second_doctor_name = fields.Char(related='m_second_doctor.name', string="Nom médecin 2", store=False, readonly=True)
 
 	#dates
 	m_operation_date_1 = fields.Datetime(string="Date prévue de l'opération")
@@ -106,7 +107,7 @@ class Operation(models.Model):
 
 	#partie patient
 	m_patient = fields.Many2one('res.partner', string="Patient", required=True)
-	m_patient_name = fields.Char(related='m_patient.name', store=False, readonly=True)
+	m_patient_name = fields.Char(related='m_patient.name', string="Nom du patient", store=False, readonly=True)
 	m_patient_mail = fields.Char(related='m_patient.email', string="Email", store=False, readonly=True)
 	m_patient_yo = fields.Integer(related='m_patient.m_years_old', string="Âge", store=False, readonly=True)
 	m_patient_gender = fields.Selection(related='m_patient.m_gender', string="Sexe", store=False, readonly=True)
