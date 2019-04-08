@@ -32,6 +32,7 @@ class Operation(models.Model):
 	_name = 'graft.operation'
 	_rec_name = 'm_name'
 	_inherit = ['mail.thread']
+	_description = 'Main model to manage patient quote requests'
 
 	m_name = fields.Char(compute='_compute_name', string="Nom de l'opération", store=True)
 	m_patient_full_name = fields.Char(string="Nom avec la civilité 'M.' ou 'Mme.'")
