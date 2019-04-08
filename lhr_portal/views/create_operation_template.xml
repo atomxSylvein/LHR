@@ -451,20 +451,58 @@
 							<table class="large">
 								<tr>
 									<td>
-										<center><img t-att-src="'/lhr_portal/static/src/img/man_1.png'" width="50" height="50"/>
-										<img t-att-src="'/lhr_portal/static/src/img/woman_1.png'" width="50" height="50"/></center>
+										<center>
+											<img 
+												t-att-src="'/lhr_portal/static/src/img/man_1.png'" 
+												width="50" 
+												height="50"
+												alt="Man - degree 1"/>
+											<img 
+												t-att-src="'/lhr_portal/static/src/img/woman_1.png'" 
+												width="50" 
+												height="50"
+												alt="Woman - degree 1"/>
+										</center>
 									</td>
 									<td>
-										<center><img t-att-src="'/lhr_portal/static/src/img/man_2.png'" width="50" height="50"/>
-										<img t-att-src="'/lhr_portal/static/src/img/woman_2.png'" width="50" height="50"/></center>
+										<center>
+											<img 
+												t-att-src="'/lhr_portal/static/src/img/man_2.png'" 
+												width="50" 
+												height="50"
+												alt="Man - degree 2"/>
+											<img 
+												t-att-src="'/lhr_portal/static/src/img/woman_2.png'" 
+												width="50" 
+												height="50"
+												alt="Woman - degree 2"/>
+											</center>
 									</td>
 									<td>
-										<center><img t-att-src="'/lhr_portal/static/src/img/man_3.png'" width="50" height="50"/>
-										<img t-att-src="'/lhr_portal/static/src/img/woman_3.png'" width="50" height="50"/></center>
+										<center>
+											<img 
+												t-att-src="'/lhr_portal/static/src/img/man_3.png'" 
+												width="50" 
+												height="50"
+												alt="Man - degree 3"/>
+											<img 
+												t-att-src="'/lhr_portal/static/src/img/woman_3.png'" 
+												width="50" 
+												height="50"
+												alt="Woman - degree 3"/></center>
 									</td>
 									<td>
-										<center><img t-att-src="'/lhr_portal/static/src/img/man_4.png'" width="50" height="50"/>
-										<img t-att-src="'/lhr_portal/static/src/img/woman_4.png'" width="50" height="50"/></center>
+										<center>
+											<img 
+												t-att-src="'/lhr_portal/static/src/img/man_4.png'" 
+												width="50" 
+												height="50"
+												alt="Man - degree 4"/>
+											<img 
+												t-att-src="'/lhr_portal/static/src/img/woman_4.png'" 
+												width="50" 
+												height="50"
+												alt="Woman - degree 4"/></center>
 									</td>
 								</tr>
 								<tr>
