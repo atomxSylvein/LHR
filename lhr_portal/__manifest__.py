@@ -12,7 +12,7 @@
     'author': "AtomX System",
     'website': "http://www.atomxsystem.eu",
     'category': 'Tools',
-    'version': '1.2',
+    'version': '1.2.1',
 
     'depends': ['base', 'website', 'website_form', 'contact_plugin', 'operation'],
 
@@ -22,7 +22,6 @@
         'views/footer.xml',
         'views/create_operation_template.xml',
         'views/header.xml',
-        'views/blank.xml',
         'views/success.xml',
     ],
     'images': [
