@@ -21,8 +21,7 @@
                           </h1>
                         </div>
                         <img src="http://www.lisboahair.com/site/images/interface/logo.jpg" 
-                            style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;"
-                            alt="LHR logo"/>
+                            style="width:auto;max-height:7.5rem;float:right;margin-top:-10px;"/>
                                     
                         <group name="maingroup">
                           
