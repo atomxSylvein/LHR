@@ -12,7 +12,7 @@
     'author': "AtomX System",
     'website': "http://www.atomxsystem.eu",
     'category': 'Tools',
-    'version': '1.2.2',
+    'version': '1.2.3',
 
     'depends': ['base', 'website', 'website_form', 'contact_plugin', 'operation'],
 
