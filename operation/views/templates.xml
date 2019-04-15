@@ -242,6 +242,7 @@
             id="graft_operation_view"
             name="Devis &amp; operations de greffe"
             action="action_view_all_operations"
+            web_icon="graft.operation,static/description/small_icon2.png"
             sequence="6"/>
 
     </data>
