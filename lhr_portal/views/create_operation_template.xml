@@ -358,19 +358,22 @@
 											type="text" 
 											name="mobile" 
 											class="form-control o_website_form_input"
-											placeholder="Mobile phone"/>
+											required="True"
+											placeholder="Mobile phone *"/>
 										<input 
 											t-elif="lang == 'fr'"
 											type="text" 
 											name="mobile" 
 											class="form-control o_website_form_input"
-											placeholder="Mobile"/>
+											required="True"
+											placeholder="Mobile *"/>
 										<input 
 											t-else=""
 											type="text" 
 											name="mobile" 
 											class="form-control o_website_form_input"
-											placeholder="Telemóvel"/>
+											required="True"
+											placeholder="Telemóvel *"/>
 									</td>
 								</tr>
 							</table>
